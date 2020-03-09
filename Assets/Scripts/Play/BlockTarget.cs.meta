@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 86c1b56c9e7395545af857477cb91da0
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - atkRedSprite: {fileID: 21300000, guid: a27ef52157299c64386db3b05b24abef, type: 3}
+  - atkOrangeSprite: {fileID: 21300000, guid: 42bfe27c7ff465e4f8397f2540eb8ccc, type: 3}
+  - atkYellowSprite: {fileID: 21300000, guid: 915e878f29ff0624fac8e157bcebad05, type: 3}
+  - atkGreenSprite: {fileID: 21300000, guid: 597ade1d8dddf5d42b182a25c0fcfe8f, type: 3}
+  - atkBlueSprite: {fileID: 21300000, guid: dc920adaf541936449037266bee711e7, type: 3}
+  - attackColorObject: {fileID: 2579965294127821921, guid: 94a0a1944c3696a49b0d99dad4c99e6e,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

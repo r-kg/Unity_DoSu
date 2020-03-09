@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TargetFormAtlas
+  m_EditorData:
+    serializedVersion: 2
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 1
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 0
+      sRGB: 1
+    platformSettings:
+    - serializedVersion: 3
+      m_BuildTarget: DefaultTexturePlatform
+      m_MaxTextureSize: 1024
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: -1
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 0
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+      m_ForceMaximumCompressionQuality_BC6H_BC7: 0
+    packingSettings:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 0
+      enableTightPacking: 0
+    variantMultiplier: 1
+    packables:
+    - {fileID: 102900000, guid: 663158be25928af4792efeb5a86490f1, type: 3}
+    - {fileID: 102900000, guid: 04c58e5084e6e104191258cc65c8e88f, type: 3}
+    - {fileID: 102900000, guid: 5f20ad0437b17124aa3de521721cfb0d, type: 3}
+    - {fileID: 102900000, guid: de0f746f4da39cd40b0bcfba1c65576b, type: 3}
+    - {fileID: 102900000, guid: 0fc3e4f378569004b93e17771ab89fdf, type: 3}
+    - {fileID: 102900000, guid: 8973ad196804e90479a8da6ab5c8142e, type: 3}
+    - {fileID: 102900000, guid: 3bf80636857818140a25edbfa832afaf, type: 3}
+    totalSpriteSurfaceArea: 917504
+    bindAsDefault: 1
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: b4b90320b6ca55142888519ed22ca64e, type: 3}
+  - {fileID: 21300000, guid: 6a3552802dbbada4ebd4218684a3eeed, type: 3}
+  - {fileID: 21300000, guid: 79de5dc0b4f5a3548b683de6a386ec70, type: 3}
+  - {fileID: 21300000, guid: 572b14f04a04dde4db9af3184f0f87ef, type: 3}
+  - {fileID: 21300000, guid: 843481d1d711ff34dac002a22fa041ac, type: 3}
+  - {fileID: 21300000, guid: 8c5986f1250240a4dadce373dfddf79f, type: 3}
+  - {fileID: 21300000, guid: 1cf36a32789df774bb178d08447664c4, type: 3}
+  - {fileID: 21300000, guid: e0322352e2c619d42812f61c60d2b59d, type: 3}
+  - {fileID: 21300000, guid: b505f47266a1f2d499347dd6a01a3b88, type: 3}
+  - {fileID: 21300000, guid: 44108ff25102f2c4ba5f5df9cacd3a74, type: 3}
+  - {fileID: 21300000, guid: e063d0a3ccae959489135e43b6e3e284, type: 3}
+  - {fileID: 21300000, guid: 0eb995e3b8d22164ab9ad3b314454033, type: 3}
+  - {fileID: 21300000, guid: e1ab710526c873341ab955d9fa1e0d4c, type: 3}
+  - {fileID: 21300000, guid: 101f28f53c54033428b5c38d11494def, type: 3}
+  - {fileID: 21300000, guid: ae0cc786ed377e849b045f7c22c3ff36, type: 3}
+  - {fileID: 21300000, guid: bb9edfb6b2c6a0e44bff2fd962e37bf5, type: 3}
+  - {fileID: 21300000, guid: e6794c07db4a1984c9de3b54be4a78c8, type: 3}
+  - {fileID: 21300000, guid: 1fd99567d8f48a64ebf08703fd6e616c, type: 3}
+  - {fileID: 21300000, guid: c9c8457791f32304f997042582ecce10, type: 3}
+  - {fileID: 21300000, guid: 5d186b875ed5f924a8d50958b2e15b64, type: 3}
+  - {fileID: 21300000, guid: 037ef697023d00640aebadf6054ee2b5, type: 3}
+  - {fileID: 21300000, guid: de1910c776cc66f4085d9540f1c7817e, type: 3}
+  - {fileID: 21300000, guid: bac1a0a88adb28b43832149277e16ac0, type: 3}
+  - {fileID: 21300000, guid: 993615e890bb9b84ba0bc626692c5333, type: 3}
+  - {fileID: 21300000, guid: e804e429323a8de4597526cce0a48c8f, type: 3}
+  - {fileID: 21300000, guid: 378911c94715e16458f5f2953c5ffbc8, type: 3}
+  - {fileID: 21300000, guid: 533e8cc9108520047b5140ad551a28ec, type: 3}
+  - {fileID: 21300000, guid: 20f1371a4a4840d4a976ca6cc6ce742b, type: 3}
+  - {fileID: 21300000, guid: bf9dc14a840b67348b6c9894a89bd4af, type: 3}
+  - {fileID: 21300000, guid: 64ab764a63f12a6429b42ee097f67a5e, type: 3}
+  - {fileID: 21300000, guid: 3537df7ae385dc042bea22cce5bdef4a, type: 3}
+  - {fileID: 21300000, guid: 3ccc8dca1ca055345a9b27b2e7a692d2, type: 3}
+  - {fileID: 21300000, guid: a94973fae81c71b4bb05658ce573d472, type: 3}
+  - {fileID: 21300000, guid: a9673f1b2e1b8814fb3be4e348627621, type: 3}
+  - {fileID: 21300000, guid: 3e1cc14b023a51143b6c5bf90e1b7c94, type: 3}
+  - {fileID: 21300000, guid: 7f45878b435fdbf43a76e9ffaeec548f, type: 3}
+  - {fileID: 21300000, guid: 33b0919bc9935cc429812858ba975af9, type: 3}
+  - {fileID: 21300000, guid: 11cbd3bbab45e0e41a7620834fc2bcbd, type: 3}
+  - {fileID: 21300000, guid: 523d42dbcf273a64fa463b7cb4412bed, type: 3}
+  - {fileID: 21300000, guid: 8030180c6b9c35140abd540036cb4b85, type: 3}
+  - {fileID: 21300000, guid: 0c15158cd801f6947891ffec500dc25d, type: 3}
+  - {fileID: 21300000, guid: a015119c8bb86464baf075e6e20f0488, type: 3}
+  - {fileID: 21300000, guid: a861749cc46f4334b94a699adf380649, type: 3}
+  - {fileID: 21300000, guid: cd4676dc354ab0342af1012ca78fd515, type: 3}
+  - {fileID: 21300000, guid: efb79c8d02212ca4098b6d35772e493f, type: 3}
+  - {fileID: 21300000, guid: c90b9c8d0d17cce458cdd367c605620b, type: 3}
+  - {fileID: 21300000, guid: 65084bbd3808c514e865b50df2c0b711, type: 3}
+  - {fileID: 21300000, guid: c46a7cfd71e33934fafa3ae841dda5f2, type: 3}
+  - {fileID: 21300000, guid: 367f083e94776674e8476a89e2b25478, type: 3}
+  - {fileID: 21300000, guid: f658e16e5e782c243ab23efde0bf43f7, type: 3}
+  - {fileID: 21300000, guid: cf235a6e27013f9488dd0fd0e3135802, type: 3}
+  - {fileID: 21300000, guid: 9455b90f9d090424cbdb7f27cdf6f1ef, type: 3}
+  - {fileID: 21300000, guid: 91cbb16ff2f6b3b4db24b4a3b6de4f20, type: 3}
+  - {fileID: 21300000, guid: 22bc5aaf60bb8624e9a651393b537c20, type: 3}
+  - {fileID: 21300000, guid: e5b1f9ff3a91a56428e65ccc86bb9470, type: 3}
+  - {fileID: 21300000, guid: 8f17cefffcf77e14aa95cd53c36a2835, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - Form6
+  - Form3
+  - Form1
+  - Form3
+  - Form4
+  - Form0
+  - Form0
+  - Form3
+  - Form2
+  - Form0
+  - Form1
+  - Form3
+  - Form6
+  - Form1
+  - Form4
+  - Form7
+  - Form4
+  - Form6
+  - Form5
+  - Form7
+  - Form2
+  - Form5
+  - Form7
+  - Form1
+  - Form2
+  - Form0
+  - Form2
+  - Form2
+  - Form0
+  - Form4
+  - Form3
+  - Form6
+  - Form7
+  - Form5
+  - Form4
+  - Form2
+  - Form6
+  - Form6
+  - Form7
+  - Form5
+  - Form3
+  - Form5
+  - Form7
+  - Form1
+  - Form2
+  - Form1
+  - Form5
+  - Form3
+  - Form0
+  - Form5
+  - Form4
+  - Form0
+  - Form1
+  - Form6
+  - Form7
+  - Form4
+  m_Tag: TargetFormAtlas
+  m_IsVariant: 0

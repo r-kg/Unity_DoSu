@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: bb80129feef97f848a52fa0b7fd13e3c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - sprRed: {fileID: 21300000, guid: 6cfde54cf5e9e3e41b77099cd78ea186, type: 3}
+  - sprOrange: {fileID: 21300000, guid: 5cb87c011b218bd48aeead1bb75abb4b, type: 3}
+  - sprYellow: {fileID: 21300000, guid: e2d610304d13f80429431f94ffc4583a, type: 3}
+  - sprGreen: {fileID: 21300000, guid: 056b9ea259dc63a41af682d0fb6e21d4, type: 3}
+  - sprBlue: {fileID: 21300000, guid: f0897ba05a2317440af536aff0041400, type: 3}
+  - tile: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
