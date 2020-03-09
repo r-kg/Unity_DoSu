@@ -94,6 +94,12 @@ public class Timer : MonoBehaviour
             {
                 Debug.Log("Time's up : " + timePassed);
 
+
+                if(PlayerPrefs.GetInt("Score") < Main.blockTarget.Score)
+                {
+                    PlayerPrefs.SetInt("Score", Main.blockTarget.Score);
+                }
+
                 
                 Constants.blockPhase = 1;
                 Constants.targetPool = 3;

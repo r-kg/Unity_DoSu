@@ -20,10 +20,15 @@ public class MainClickEvent : MonoBehaviour
 
     private bool tutorialReview = false;
 
-    // Start is called before the first frame update
-    private void Start()
+    //Test
+    public Text loginText;
+
+    void Start()
     {
-        //PlayerPrefs.DeleteAll();
+        if(Social.localUser.authenticated)
+        {
+            loginText.text = Social.localUser.id + " - " + Social.localUser.userName;
+        }
     }
 
     public void PopupSetting()
@@ -82,6 +87,20 @@ public class MainClickEvent : MonoBehaviour
         tutorialPageNum = 0;
         tutorial.GetComponent<Image>().sprite = tutorialPages[tutorialPageNum];
         SoundManager.Instance.UI();
+    }
+
+    public void ShowLeaderboard()
+    {
+        GoogleManager.Instance.LogIn();
+        GoogleManager.Instance.OnShowLeaderboard();
+        loginText.text = Social.localUser.id + " - " + Social.localUser.userName;
+        
+    }
+
+    public void TestLogout()
+    {
+        GoogleManager.Instance.LogOut();
+        loginText.text = "Please sign in with Google Play Games";
     }
 
 

@@ -113,5 +113,11 @@ public class Main : MonoBehaviour
         Initiate.Fade("Play",Color.white,1.2f);
     }
 
+    public void ShowLeaderboard()
+    {
+        GoogleManager.Instance.ReportLeaderboardScore(Main.blockTarget.Score);
+        GoogleManager.Instance.OnShowLeaderboard();
+    }
+
 }
 

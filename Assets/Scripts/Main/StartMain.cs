@@ -23,12 +23,20 @@ public class StartMain : MonoBehaviour
         Screen.SetResolution(Screen.height * 9 / 16, Screen.height, true);
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
+        //GPGS
+        GoogleManager.Instance.ActivateGPGS();
+
         //Audio Initailize
         LoadAudioClips();
         SoundManager.Instance.playBGM(SoundManager.Instance.bgmMain);
         SoundManager.Instance.bgmPlayer.volume = 0.4f;
 
-
+        //Score\
+        if(PlayerPrefs.HasKey("Score") == false)
+        {
+            PlayerPrefs.SetInt("Score",0);
+            PlayerPrefs.Save();
+        }
 
     }
 
