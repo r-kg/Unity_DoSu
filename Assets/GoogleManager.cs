@@ -7,19 +7,19 @@ using GooglePlayGames;
 
 public class GoogleManager : MonoSingleton<GoogleManager>
 {
-    // Start is called before the first frame update
-    void Start()
-    {   
-        
-    }
 
-    public void ActivateGPGS()
-    {
+    public bool active;
+
+
+    // Start is called before the first frame update
+    void Awake()
+    {   
         PlayGamesPlatform.InitializeInstance(new GooglePlayGames.BasicApi.PlayGamesClientConfiguration.Builder().Build());
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+        LogIn();
+        
     }
-
     
     public void LogIn()
     {
@@ -49,11 +49,11 @@ public class GoogleManager : MonoSingleton<GoogleManager>
     {
         if(Social.localUser.authenticated)
         {
-            Social.ReportScore(score, GPGSIds.leaderboard_dosu_score_leaderboard,(bool success) =>
+            Social.ReportScore(score, GPGSIds.leaderboard_dosu_ranking,(bool success) =>
             {
                 if(success)
                 {
-
+                    
                 }
                 else
                 {
@@ -63,31 +63,36 @@ public class GoogleManager : MonoSingleton<GoogleManager>
         }
     }
 
-    public long LoadLeaderboardScore()
+    public void ReportAchievements(string achievement_id)
     {
-        long bestScore = 0;
-        ILeaderboard ib = PlayGamesPlatform.Instance.CreateLeaderboard();
-        ib.id = GPGSIds.leaderboard_dosu_score_leaderboard;
+        Social.ReportProgress(achievement_id, 100.0, (bool success)=>{});
+    }
 
-        ib.LoadScores(scores =>
-        {
-            bestScore = ib.localUserScore.value;
-        });
+    public bool isLogged()
+    {
+        return  Social.localUser.authenticated;
+    }
 
-        return bestScore;
+    public string GetUserName()
+    {
+        return Social.localUser.userName;
     }
 
     public void OnShowLeaderboard()
     {
         if(Social.localUser.authenticated)
         {
+            Social.LoadScores(GPGSIds.leaderboard_dosu_ranking, (scores) =>{});
             Social.ShowLeaderboardUI();
         }
     }
 
     public void OnShowAchivementUI()
     {
-        Social.ShowAchievementsUI();
+        if(Social.localUser.authenticated)
+        {
+            Social.ShowAchievementsUI();
+        }
     }
 
 }

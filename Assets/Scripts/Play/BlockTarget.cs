@@ -135,6 +135,8 @@ public class BlockTarget : MonoBehaviour
 
         SetScore(hitCount, missCount);
         SetCombo(hitCount, missCount, touchWorldPos);
+        Main.totalHit += hitCount;
+        Main.totalMiss += missCount;
         //SoundManager.Instance.Click();
 
         return hitCount - missCount;

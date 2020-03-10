@@ -24,12 +24,27 @@
 
 public static class GPGSIds
 {
-        public const string leaderboard_dosu_score_leaderboard = "CgkI2ZPGvagXEAIQAQ"; // <GPGSID>
-        public const string achievement_score_10000 = "CgkI2ZPGvagXEAIQAw"; // <GPGSID>
-        public const string achievement_score_25000 = "CgkI2ZPGvagXEAIQBA"; // <GPGSID>
-        public const string achievement_score_50000 = "CgkI2ZPGvagXEAIQBQ"; // <GPGSID>
-        public const string achievement_score_5000 = "CgkI2ZPGvagXEAIQAg"; // <GPGSID>
+        public const string leaderboard_dosu_ranking = "CgkI2ZPGvagXEAIQAQ"; // <GPGSID>
+        public const string achievement_the_silence_of_the_cats = "CgkI2ZPGvagXEAIQDQ"; // <GPGSID>
+        public const string achievement_perfect_game_ii = "CgkI2ZPGvagXEAIQEg"; // <GPGSID>
         public const string achievement_score_100000 = "CgkI2ZPGvagXEAIQBg"; // <GPGSID>
+        public const string achievement_are_they_sleeping = "CgkI2ZPGvagXEAIQDg"; // <GPGSID>
+        public const string achievement_meowmeow = "CgkI2ZPGvagXEAIQCg"; // <GPGSID>
+        public const string achievement_please_stop = "CgkI2ZPGvagXEAIQDA"; // <GPGSID>
+        public const string achievement_score_50000 = "CgkI2ZPGvagXEAIQBQ"; // <GPGSID>
+        public const string achievement_perfect__game_i = "CgkI2ZPGvagXEAIQEQ"; // <GPGSID>
+        public const string achievement_perfect_game_iii = "CgkI2ZPGvagXEAIQEw"; // <GPGSID>
+        public const string achievement_meowmeowmeowmeow = "CgkI2ZPGvagXEAIQCw"; // <GPGSID>
+        public const string achievement_thanks_for_playing = "CgkI2ZPGvagXEAIQFQ"; // <GPGSID>
+        public const string achievement_lets_go_su = "CgkI2ZPGvagXEAIQDw"; // <GPGSID>
+        public const string achievement_score_10000 = "CgkI2ZPGvagXEAIQAw"; // <GPGSID>
+        public const string achievement_im_more_of_a_dog_person = "CgkI2ZPGvagXEAIQCA"; // <GPGSID>
+        public const string achievement_lets_go_do = "CgkI2ZPGvagXEAIQEA"; // <GPGSID>
+        public const string achievement_score_25000 = "CgkI2ZPGvagXEAIQBA"; // <GPGSID>
+        public const string achievement_meow = "CgkI2ZPGvagXEAIQCQ"; // <GPGSID>
+        public const string achievement_score_5000 = "CgkI2ZPGvagXEAIQAg"; // <GPGSID>
+        public const string achievement_score_1000000 = "CgkI2ZPGvagXEAIQBw"; // <GPGSID>
+        public const string achievement_hello_dosu = "CgkI2ZPGvagXEAIQFA"; // <GPGSID>
 
 }
 

@@ -45,6 +45,7 @@ public class Fader : MonoBehaviour
         {
             bg = transform.GetComponent<Image>();
             bg.color = fadeColor;
+            
         }
         //Checking and starting the coroutine
         if (myCanvas && bg)
@@ -87,7 +88,7 @@ public class Fader : MonoBehaviour
                 //Fade out
                 alpha = newAlpha(coDelta, 0, alpha);
                 if (alpha == 0)
-                {
+                { 
                     hasFadedIn = true;
                 }
 
@@ -97,9 +98,9 @@ public class Fader : MonoBehaviour
             myCanvas.alpha = alpha;
             yield return null;
         }
-
+        
         Initiate.DoneFading();
-
+        
         Debug.Log("Your scene has been loaded , and fading in has just ended");
 
         Destroy(gameObject);

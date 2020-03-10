@@ -17,14 +17,15 @@ public class StartMain : MonoBehaviour
     {
         //Quit();
     }
+
     void Start()
     {
         //mainCamera.orthographicSize = (Screen.height / (Screen.width / 16.0f)) / 9.0f; 
-        Screen.SetResolution(Screen.height * 9 / 16, Screen.height, true);
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         //GPGS
-        GoogleManager.Instance.ActivateGPGS();
+        GoogleManager.Instance.active = true;
+        AdManager.Instance.acitve = true;
 
         //Audio Initailize
         LoadAudioClips();

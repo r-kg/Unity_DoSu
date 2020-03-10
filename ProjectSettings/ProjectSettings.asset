@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: TeamDS
-  productName: "\uB3C4\uB3C4\uC218\uC218 TEST"
+  productName: "\uB3C4\uB3C4\uC218\uC218 Test Build"
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.9607844, g: 0.7254902, b: 0.74509805, a: 1}

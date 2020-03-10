@@ -11,6 +11,7 @@ public class Main : MonoBehaviour
     public static List<GameObject> blockList;
     public static List<Animator> blockAnimatorList;
     public static bool resetCheck;
+    public static int itemDoCount = 0, itemSuCount = 0, totalHit = 0, totalMiss = 0;
     private bool isPause;
 
     //Logic Classes
@@ -18,6 +19,7 @@ public class Main : MonoBehaviour
     public static BlockGenerator blockGenerator;
     public static BlockSlider blockSlider;
     public static BlockItem blockItem;
+    public AchievementTracker achievementTracker;
     public static Timer timer;
     private TouchListener touchListener;
 
@@ -25,9 +27,6 @@ public class Main : MonoBehaviour
     public GameObject resultDlg;
     public GameObject CountdownImage;
     public Text resultScore;
-
-    public static string leaderBoardId = "CgkI-9-Y-L0VEAIQAA";
-
 
 
 
@@ -54,6 +53,7 @@ public class Main : MonoBehaviour
     {
         blockTarget = this.gameObject.GetComponent<BlockTarget>();
         blockGenerator = this.gameObject.GetComponent<BlockGenerator>();
+        achievementTracker = this.gameObject.GetComponent<AchievementTracker>();
         resetCheck = blockGenerator.GenerateBlockSet();
     }
 
@@ -67,8 +67,13 @@ public class Main : MonoBehaviour
             if (timer.End)
             {
                 resetCheck = false;
-                resultDlg.SetActive(true);
-                resultScore.text = string.Format("{0:#,###0}", blockTarget.Score);
+                if(resultDlg.activeSelf==false){
+                    resultDlg.SetActive(true);
+                    resultScore.text = string.Format("{0:#,###0}", blockTarget.Score);
+                    achievementTracker.CheckAchievement(itemDoCount, itemSuCount, totalHit, totalMiss);
+                    GoogleManager.Instance.ReportLeaderboardScore(Main.blockTarget.Score);
+                    AdManager.Instance.DisplayBanner();
+                }
             }
         }
     }
@@ -102,6 +107,7 @@ public class Main : MonoBehaviour
     /// </summary>
     public void LoadMain()
     {
+        AdManager.Instance.HideBanner();
         AdManager.Instance.DisplayInterstitial();
         Initiate.Fade("Main",Color.white,1.2f);
         
@@ -109,13 +115,13 @@ public class Main : MonoBehaviour
 
     public void Retry()
     {
+        AdManager.Instance.HideBanner();
         AdManager.Instance.DisplayInterstitial();
         Initiate.Fade("Play",Color.white,1.2f);
     }
 
     public void ShowLeaderboard()
     {
-        GoogleManager.Instance.ReportLeaderboardScore(Main.blockTarget.Score);
         GoogleManager.Instance.OnShowLeaderboard();
     }
 

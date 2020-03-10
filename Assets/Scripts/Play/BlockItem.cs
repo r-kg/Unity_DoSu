@@ -61,12 +61,12 @@ public class BlockItem : MonoBehaviour
                     blockScript.Destroy("Destroy",0.5f);
                 }
             }
-
-            Animator.SetTrigger("DoSmile");
             SoundManager.Instance.DoMeow();
-            Main.blockGenerator.DelayGenerate(0.51f, false);
+            Animator.SetTrigger("DoSmile");
             ItemAnim.SetBool("ItemActive",false);
+            Main.blockGenerator.DelayGenerate(0.51f, false);
             Main.timer.ModifyTime(10);
+            Main.itemDoCount++;
             active = false;
         }       
     }
@@ -87,11 +87,12 @@ public class BlockItem : MonoBehaviour
                 }
             }
 
-            Animator.SetTrigger("SooSmile");
             SoundManager.Instance.DoMeow();
-            Main.blockGenerator.DelayGenerate(0.51f, false);
+            Animator.SetTrigger("SooSmile");
             ItemAnim.SetBool("ItemActive",false);
+            Main.blockGenerator.DelayGenerate(0.51f, false);
             Main.timer.ModifyTime(10);
+            Main.itemSuCount++;
             active = false;
             
         }
