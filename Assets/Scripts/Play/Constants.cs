@@ -13,13 +13,17 @@ public static class Constants
 
     public static int gap = 190;
 
-    public static int x3 = 350;
-    public static int y3 = 1400;
-    public static int gap3 = 190;
+    public static float blockSize = 0.925f;
 
-    public static int x5 = 160;
-    public static int y5 = 1590;
-    public static int gap5 = 190;
+    public static int x5 = 185;
+    public static int y5 = 1540;
+    public static int gap5 = 172;
+    public static float blockSize5 = 0.925f;
+
+    public static int x7 = 165;
+    public static int y7 = 1563;
+    public static int gap7 = 125;
+    public static float blockSize7 = 0.64f;
 
 
     public enum BlockType { Red, Pink, Blue, Green, Yellow, LOCK, Random};

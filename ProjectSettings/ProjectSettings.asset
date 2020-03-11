@@ -171,7 +171,7 @@ PlayerSettings:
   buildNumber: {}
   AndroidBundleVersionCode: 1
   AndroidMinSdkVersion: 16
-  AndroidTargetSdkVersion: 0
+  AndroidTargetSdkVersion: 28
   AndroidPreferredInstallLocation: 1
   aotOptions: 
   stripEngineCode: 1
@@ -262,7 +262,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/Kim G/Desktop/Application Keystore/user.keystore
+  AndroidKeystoreName: C:/Users/user/Desktop/Application Keystore/user.keystore
   AndroidKeyaliasName: kimg
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

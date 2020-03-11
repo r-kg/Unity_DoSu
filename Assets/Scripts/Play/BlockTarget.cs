@@ -13,7 +13,9 @@ public class BlockTarget : MonoBehaviour
     [SerializeField] Sprite[] phaseTextImage;
 
     public int targetform;
-    public Image targetColor, targetForm, targetPhaseImage;
+
+    public GameObject objTargetColor, objTargetForm, ObjectTargetPhaseImage;
+    private Image targetColor, targetForm, targetPhaseImage;
     private Animator targetColorAnim, targetFormAnim, targetPhaseAnim, scoreTextAnim;
     public int Score {get; set;}
     private Text scoreText, comboText;

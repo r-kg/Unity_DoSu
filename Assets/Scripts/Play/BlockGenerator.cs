@@ -11,8 +11,7 @@ public class BlockGenerator : MonoBehaviour
 
     void Awake()
     {
-        //block = Resources.Load<GameObject>("Prefab/Block");
-        //block = Resources.Load<GameObject>("Prefab/BlockObject");
+        //block.transform.localScale = new Vector3(Constants.blockSize, Constants.blockSize, 1);
     }
 
     /// <summary>
@@ -27,7 +26,9 @@ public class BlockGenerator : MonoBehaviour
 
         int pivotX = (int)typeof(Constants).GetField("x" + Constants.size).GetValue(typeof(Constants));
         int pivotY = (int)typeof(Constants).GetField("y" + Constants.size).GetValue(typeof(Constants));
+        float bSize = (float)typeof(Constants).GetField("blockSize" + Constants.size).GetValue(typeof(Constants));
         Constants.gap = (int)typeof(Constants).GetField("gap" + Constants.size).GetValue(typeof(Constants));
+        block.transform.localScale = new Vector3(bSize, bSize, 1);
 
         for (int i = 0; i < Mathf.Pow(Constants.size, 2); i++)
         {

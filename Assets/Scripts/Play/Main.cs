@@ -28,6 +28,8 @@ public class Main : MonoBehaviour
     public GameObject CountdownImage;
     public Text resultScore;
 
+    private int clickCount;
+
 
 
     /// <summary>
@@ -76,6 +78,23 @@ public class Main : MonoBehaviour
                 }
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            clickCount++;
+            ToastMessage.Instance.showAndroidToast("'뒤로'버튼을 한번 더 누르시면 처음 화면으로 돌아갑니다.");
+            if (!IsInvoking("DoubleClick"))
+                Invoke("DoubleClick", 1.5f);
+       
+        }
+        else if (clickCount == 2)
+        {
+            CancelInvoke("DoubleClick");
+            resetCheck = false;
+            Initiate.Fade("Main",Color.white,3.5f);
+            
+
+        }
     }
 
     /// <summary>
@@ -123,6 +142,11 @@ public class Main : MonoBehaviour
     public void ShowLeaderboard()
     {
         GoogleManager.Instance.OnShowLeaderboard();
+    }
+
+    void DoubleClick()
+    {
+        clickCount = 0;
     }
 
 }

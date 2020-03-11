@@ -11,18 +11,34 @@ public class StartMain : MonoBehaviour
     [SerializeField] Camera mainCamera;
 
     private int count;
+    private int clickCount;
     private float exit_time;
+
     
     void Update()
     {
-        //Quit();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            clickCount++;
+            ToastMessage.Instance.showAndroidToast("'뒤로'버튼을 한번 더 누르시면 종료됩니다.");
+            if (!IsInvoking("DoubleClick"))
+                Invoke("DoubleClick", 1.5f);
+       
+        }
+        else if (clickCount == 2)
+        {
+            CancelInvoke("DoubleClick");
+            SoundManager.Instance.bgmPlayer.Pause();
+            SoundManager.Instance.effectPlayer.Pause();
+            Quit();
+
+        }
     }
 
     void Start()
     {
         //mainCamera.orthographicSize = (Screen.height / (Screen.width / 16.0f)) / 9.0f; 
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
-
         //GPGS
         GoogleManager.Instance.active = true;
         AdManager.Instance.acitve = true;
@@ -57,26 +73,15 @@ public class StartMain : MonoBehaviour
         SoundManager.Instance.ui = soundEffects[5];
         SoundManager.Instance.swipe = soundEffects[6];
     }
-
-    private void Quit()
+    void DoubleClick()
     {
-        if(Application.platform == RuntimePlatform.Android && Input.GetKeyDown(KeyCode.Escape))
-        {
-            count++;
-        }
-        if(count==2)
-        {
-            Application.Quit();
-        }
-
-        if(exit_time>1)
-        {
-            count = 0; 
-            exit_time = 0;
-        }
-        else
-        {
-            exit_time += Time.deltaTime;
-        }
+        clickCount = 0;
     }
+
+    public static void Quit()
+    {
+    AndroidJavaClass ajc = new AndroidJavaClass("com.lancekun.quit_helper.AN_QuitHelper");
+    AndroidJavaObject UnityInstance = ajc.CallStatic<AndroidJavaObject>("Instance");
+    UnityInstance.Call("AN_Exit");
+    }   
 }
