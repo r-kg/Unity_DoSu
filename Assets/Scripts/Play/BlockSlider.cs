@@ -5,6 +5,10 @@ using UnityEngine;
 public class BlockSlider : MonoBehaviour
 {
     private GameObject tileSliderParent;
+
+    public List<GameObject> silderList;
+
+    [SerializeField] GameObject blockHandler;
     private Vector2 posArrival;
     private bool sliding = false;
 
@@ -14,6 +18,7 @@ public class BlockSlider : MonoBehaviour
     void Awake()
     {
         tileSliderParent = new GameObject("BlockSlider");
+        silderList = new List<GameObject>();
     }
 
     /// <summary>
@@ -24,6 +29,8 @@ public class BlockSlider : MonoBehaviour
     /// <returns></returns>
     public bool Slide(GameObject hitTile, Constants.SlideState state)
     {
+        if(Main.blockGenerator.isGenerating) return true;
+
         Block hitTemp = hitTile.GetComponent<Block>();
         List<Constants.BlockType> blockTypes = new List<Constants.BlockType>();
         int rX = 0, rY = 0;
@@ -40,6 +47,7 @@ public class BlockSlider : MonoBehaviour
                 if(temp.Coord.Y == hitTemp.Coord.Y)
                 {
                     Main.blockList[i].transform.parent = tileSliderParent.GetComponent<Transform>();
+                    silderList.Add(Main.blockList[i]);
                     blockTypes.Add(Main.blockList[i].GetComponent<Block>().Color);
                 }
             }//for
@@ -57,6 +65,7 @@ public class BlockSlider : MonoBehaviour
                 if (temp.Coord.X == hitTemp.Coord.X)
                 {
                     Main.blockList[i].transform.parent = tileSliderParent.GetComponent<Transform>();
+                    silderList.Add(Main.blockList[i]);
                     blockTypes.Add(Main.blockList[i].GetComponent<Block>().Color);
                 }
             }//for
@@ -139,7 +148,14 @@ public class BlockSlider : MonoBehaviour
             if (tileSliderParent.transform.position.Equals(posArrival))
             {
                 sliding = false;
-                tileSliderParent.transform.DetachChildren();
+                tileSliderParent.transform.DetachChildren();    
+
+                foreach(GameObject block in silderList)
+                {
+                    block.transform.parent = blockHandler.transform;
+                }
+
+                silderList.Clear();
             }
         }
     }

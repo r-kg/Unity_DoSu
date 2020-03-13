@@ -468,6 +468,401 @@ public class BlockTargetFormer : MonoBehaviour
         targetCoords.Add(new Coordinate(Pivot.X , Pivot.Y - 3));    
     }
 
+    ///////////
+    //Phase 8//
+    ///////////
+    private void Phase8Form0(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y));
+    }
+    private void Phase8Form1(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 3));
+    }
+    private void Phase8Form2(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+    }
+    private void Phase8Form3(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 1));
+    }
+    private void Phase8Form4(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y - 1));
+    }
+    private void Phase8Form5(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 3));
+    }
+    private void Phase8Form6(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 3));
+    }
+    private void Phase8Form7(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y + 2));
+    }
+     ///////////
+    //Phase 9//
+    ///////////
+    private void Phase9Form0(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y + 3));
+        targetCoords.Add(new Coordinate(Pivot.X + 4, Pivot.Y + 4));
+    }
+    private void Phase9Form1(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y + 3));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 4));
+    }
+    private void Phase9Form2(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 3, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 4, Pivot.Y + 2));
+    }
+    private void Phase9Form3(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y - 3));
+    }
+    private void Phase9Form4(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 2));
+    }
+    private void Phase9Form5(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X - 3, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 3));
+    }
+    private void Phase9Form6(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+    }
+    private void Phase9Form7(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 3));
+    }
+
+    ///////////
+    //Phase 10//
+    ///////////
+    private void Phase10Form0(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X - 3, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 3, Pivot.Y + 1));
+    }
+    private void Phase10Form1(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y + 1));
+    }
+    private void Phase10Form2(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X , Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 2));
+    }
+    private void Phase10Form3(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+    }
+    private void Phase10Form4(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+    }
+    private void Phase10Form5(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 3 , Pivot.Y - 2));
+    }
+    private void Phase10Form6(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 3));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y + 3));
+    }
+    private void Phase10Form7(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 2));
+    }
+
+    ///////////
+    //Phase 11//
+    ///////////
+    private void Phase11Form0(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 1));
+    }
+    private void Phase11Form1(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y + 1)); 
+    }
+    private void Phase11Form2(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+    }
+    private void Phase11Form3(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 2));
+    }
+    private void Phase11Form4(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 3));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y + 2));
+    }
+    private void Phase11Form5(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 3));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 3));
+    }
+    private void Phase11Form6(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 3, Pivot.Y - 3));
+        targetCoords.Add(new Coordinate(Pivot.X - 4, Pivot.Y - 2));
+    }
+    private void Phase11Form7(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y + 2));
+    }
+
+    ///////////
+    //Phase 12//
+    ///////////
+    private void Phase12Form0(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y - 1));
+    }
+    private void Phase12Form1(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 2));
+    }
+    private void Phase12Form2(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 2));
+    }
+    private void Phase12Form3(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y + 3));
+        targetCoords.Add(new Coordinate(Pivot.X + 4, Pivot.Y + 3));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 4));
+        targetCoords.Add(new Coordinate(Pivot.X + 5, Pivot.Y + 4));
+    }
+    private void Phase12Form4(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y));
+        targetCoords.Add(new Coordinate(Pivot.X + 3, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y + 2));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 2));
+    }
+    private void Phase12Form5(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y + 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y + 1));
+    }
+    private void Phase12Form6(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 3));
+        targetCoords.Add(new Coordinate(Pivot.X - 2, Pivot.Y - 4));
+        targetCoords.Add(new Coordinate(Pivot.X - 1, Pivot.Y - 5));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 4));
+    }
+    private void Phase12Form7(List<Coordinate> targetCoords)
+    {
+        targetCoords.Add(Pivot);
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 1));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 2));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 3));
+        targetCoords.Add(new Coordinate(Pivot.X + 2, Pivot.Y - 4));
+        targetCoords.Add(new Coordinate(Pivot.X + 1, Pivot.Y - 5));
+        targetCoords.Add(new Coordinate(Pivot.X, Pivot.Y - 4));
+    }
+
 
 
     private void FormENTIRE(List<Coordinate> targetCoords)

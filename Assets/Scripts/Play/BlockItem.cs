@@ -23,7 +23,7 @@ public class BlockItem : MonoBehaviour
     public abstract class Item
     {
         protected bool active = true;
-        protected float prob = 5f;
+        protected float prob = 3f;
         public Animator Animator { get; set; }
         public Animator ItemAnim {get; set;}
 
@@ -32,7 +32,7 @@ public class BlockItem : MonoBehaviour
         {
             if (active == true) return;
 
-            active = Constants.Prob(active,ref prob, 3f);
+            active = Constants.Prob(active,ref prob, 2f);
 
             if (active)
             {
@@ -58,13 +58,14 @@ public class BlockItem : MonoBehaviour
                 }
                 else
                 {
-                    blockScript.Destroy("Destroy",0.5f);
+                    blockScript.Destroy("Disable",0.5f);
                 }
             }
             SoundManager.Instance.DoMeow();
             Animator.SetTrigger("DoSmile");
             ItemAnim.SetBool("ItemActive",false);
-            Main.blockGenerator.DelayGenerate(0.51f, false);
+            Main.resetCheck = false;
+            Main.blockGenerator.DelayGenerate(0.51f, false, true);
             Main.timer.ModifyTime(10);
             Main.itemDoCount++;
             active = false;
@@ -82,7 +83,7 @@ public class BlockItem : MonoBehaviour
                 Block blockScript = Main.blockList[i].GetComponent<Block>();
                 if (Main.blockTarget.TargetColor == blockScript.Color)
                 {
-                    Main.blockTarget.Score += 100;
+                    Main.blockTarget.Score = Main.blockTarget.Score + 500;
                     blockScript.Destroy("PopSoo",0.5f);
                 }
             }
@@ -90,11 +91,13 @@ public class BlockItem : MonoBehaviour
             SoundManager.Instance.DoMeow();
             Animator.SetTrigger("SooSmile");
             ItemAnim.SetBool("ItemActive",false);
-            Main.blockGenerator.DelayGenerate(0.51f, false);
+            Main.resetCheck = false;
+            Main.blockGenerator.DelayGenerate(0.51f, false, true);
             Main.timer.ModifyTime(10);
             Main.itemSuCount++;
             active = false;
             
         }
+
     }
 }

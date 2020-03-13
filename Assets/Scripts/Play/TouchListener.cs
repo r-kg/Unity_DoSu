@@ -21,6 +21,8 @@ public class TouchListener : MonoBehaviour
 
             if (Main.resetCheck == false) return;
 
+            if(Main.blockGenerator.isGenerating) return;
+
              switch (t.phase)
              {
                  case TouchPhase.Began:
@@ -108,12 +110,13 @@ public class TouchListener : MonoBehaviour
                     Main.resetCheck = false;
                     int timeSub = Main.blockTarget.CalculateTargets(hit.collider.gameObject, Camera.main.ScreenToWorldPoint(touchPosToVector));
                     Main.timer.ModifyTime(timeSub);
-                    Main.blockGenerator.DelayGenerate(0.51f, true);
+                    Main.blockGenerator.DelayGenerate(0.51f, true, true);
                 }
                 break;
 
             case "ItemSoo":
                 Main.blockItem.itemSoo.Use();
+                Invoke("SetScore",0.4f);
                 break;
 
             case "ItemDo":
@@ -169,4 +172,13 @@ public class TouchListener : MonoBehaviour
         }
         return Constants.SlideState.NONE;
     }
+
+        //수수아이템을 위해
+        public void SetScore()
+        {
+            //Main.blockTarget.SetDifficulty();
+            Main.blockTarget.scoreTextAnim.SetTrigger("ScorePlus");
+            Main.blockTarget.scoreText.text = string.Format("{0:#,###0}", Main.blockTarget.Score);
+            Main.timer.SetTimeDifficulty(Main.blockTarget.Score);
+        }
 }

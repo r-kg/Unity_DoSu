@@ -16,14 +16,9 @@ public class AchievementTracker : MonoBehaviour
         
     }
 
-    public void CheckAchievement(int itemDoCount, int itemSuCount, int totalHit, int totalMiss)
+    public void CheckAchievement()
     {
         if(Social.localUser.authenticated == false) return;
-
-        this.itemDoCount = itemDoCount;
-        this.itemSuCount = itemSuCount;
-        this.totalHit = totalHit;
-        this.totalMiss = totalMiss;
 
         finalScore = Main.blockTarget.Score;
         CheckScoreAchievement();

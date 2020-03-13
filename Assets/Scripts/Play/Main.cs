@@ -11,8 +11,10 @@ public class Main : MonoBehaviour
     public static List<GameObject> blockList;
     public static List<Animator> blockAnimatorList;
     public static bool resetCheck;
-    public static int itemDoCount = 0, itemSuCount = 0, totalHit = 0, totalMiss = 0;
+    public static int itemDoCount, itemSuCount, totalHit, totalMiss;
     private bool isPause;
+    [SerializeField] GameObject[] pauseHider;
+    [SerializeField] GameObject pausePopup;
 
     //Logic Classes
     public static BlockTarget blockTarget;
@@ -41,7 +43,7 @@ public class Main : MonoBehaviour
         blockColors = (Sprite[])serializedBlockColors.Clone();
 
         //**Generate class instances**//
-        blockSlider = gameObject.AddComponent<BlockSlider>();
+        //blockSlider = gameObject.AddComponent<BlockSlider>();
         blockItem = gameObject.AddComponent<BlockItem>();
         timer = gameObject.AddComponent<Timer>();
         touchListener = gameObject.AddComponent<TouchListener>();
@@ -55,8 +57,10 @@ public class Main : MonoBehaviour
     {
         blockTarget = this.gameObject.GetComponent<BlockTarget>();
         blockGenerator = this.gameObject.GetComponent<BlockGenerator>();
+        blockSlider = this.gameObject.GetComponent<BlockSlider>();
         achievementTracker = this.gameObject.GetComponent<AchievementTracker>();
-        resetCheck = blockGenerator.GenerateBlockSet();
+        resetCheck = blockGenerator.GenerateBlockSet(true);
+        itemDoCount = itemSuCount = totalHit = totalMiss = 0;
     }
 
     void Update()
@@ -70,31 +74,33 @@ public class Main : MonoBehaviour
             {
                 resetCheck = false;
                 if(resultDlg.activeSelf==false){
+                    achievementTracker.itemDoCount = Main.itemDoCount;
+                    achievementTracker.itemSuCount = Main.itemSuCount;
+                    achievementTracker.totalHit = Main.totalHit;
+                    achievementTracker.totalMiss = Main.totalMiss;
                     resultDlg.SetActive(true);
                     resultScore.text = string.Format("{0:#,###0}", blockTarget.Score);
-                    achievementTracker.CheckAchievement(itemDoCount, itemSuCount, totalHit, totalMiss);
+                    GoogleManager.Instance.LogIn();
+                    achievementTracker.CheckAchievement();
                     GoogleManager.Instance.ReportLeaderboardScore(Main.blockTarget.Score);
                     AdManager.Instance.DisplayBanner();
+                    ResetValues();
                 }
             }
         }
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            clickCount++;
-            ToastMessage.Instance.showAndroidToast("'뒤로'버튼을 한번 더 누르시면 처음 화면으로 돌아갑니다.");
-            if (!IsInvoking("DoubleClick"))
-                Invoke("DoubleClick", 1.5f);
-       
+            if(timer.End || timeLeft > 0)
+            {
+                Initiate.Fade("Main",Color.white,1.2f);
+            }
+            else
+            {
+                PauseGame();
+            }
         }
-        else if (clickCount == 2)
-        {
-            CancelInvoke("DoubleClick");
-            resetCheck = false;
-            Initiate.Fade("Main",Color.white,3.5f);
-            
 
-        }
     }
 
     /// <summary>
@@ -116,6 +122,10 @@ public class Main : MonoBehaviour
                 CountdownImage.SetActive(false);
                 isPause = false;
                 timer.StartCoroutine(timer.TimeCoroutine());
+
+                //Main.blockGenerator.DestroyBlockSet();
+
+
                 yield break;
             }
         }
@@ -126,6 +136,7 @@ public class Main : MonoBehaviour
     /// </summary>
     public void LoadMain()
     {
+        ResetValues();
         AdManager.Instance.HideBanner();
         AdManager.Instance.DisplayInterstitial();
         Initiate.Fade("Main",Color.white,1.2f);
@@ -134,6 +145,7 @@ public class Main : MonoBehaviour
 
     public void Retry()
     {
+        ResetValues();
         AdManager.Instance.HideBanner();
         AdManager.Instance.DisplayInterstitial();
         Initiate.Fade("Play",Color.white,1.2f);
@@ -143,6 +155,48 @@ public class Main : MonoBehaviour
     {
         GoogleManager.Instance.OnShowLeaderboard();
     }
+
+    public void PauseGame()
+    {
+
+        if(Main.timer.isPause)
+        { 
+            //일시정지 해제
+            Main.resetCheck = true;
+            Main.timer.isPause = false;
+            AdManager.Instance.HideBanner();
+            pausePopup.SetActive(false);
+            foreach(GameObject hider in pauseHider)
+            {
+                hider.SetActive(true);
+            }
+            ToastMessage.Instance.CancelToast();
+        }
+        else
+        {
+            //일시정지
+            Main.resetCheck = false;
+            Main.timer.isPause = true;
+            AdManager.Instance.DisplayBanner();
+            pausePopup.SetActive(true);
+            foreach(GameObject hider in pauseHider)
+            {
+                hider.SetActive(false);
+            }
+            ToastMessage.Instance.showAndroidToast("'뒤로'버튼을 한번 더 누르시면 게임을 재개합니다.");
+        }
+    }
+
+    public static void ResetValues()
+    {
+        Constants.size = 5;
+        Constants.blockPhase = 1;
+        Constants.targetPool = 3;
+        Constants.obsRange = 0;
+        Constants.range = 4;
+        itemDoCount = itemSuCount = totalHit = totalMiss = 0;
+    }
+
 
     void DoubleClick()
     {

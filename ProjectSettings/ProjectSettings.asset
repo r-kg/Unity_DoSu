@@ -262,7 +262,7 @@ PlayerSettings:
   AndroidTargetArchitectures: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: C:/Users/user/Desktop/Application Keystore/user.keystore
+  AndroidKeystoreName: C:/Users/Kim G/Desktop/Application Keystore/user.keystore
   AndroidKeyaliasName: kimg
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

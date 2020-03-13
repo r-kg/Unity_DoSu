@@ -25,6 +25,7 @@ public class GoogleManager : MonoSingleton<GoogleManager>
     {
         if(!Social.localUser.authenticated)
         {
+            ToastMessage.Instance.showAndroidToast("Play 게임 서비스에 로그인 합니다.");
             Social.localUser.Authenticate((bool success) =>
             {
                 if(success)

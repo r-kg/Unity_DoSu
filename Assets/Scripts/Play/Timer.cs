@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
         get { return maxTime; }
         set
         {
-            if (value < 5) value = 5;
+            if (value < 11) value = 11;
             maxTime = value;
             timeSpeed = 1.0f / (float)maxTime;
         }
@@ -26,6 +26,8 @@ public class Timer : MonoBehaviour
 
     public readonly float startTime = 25f;
 
+    public bool isPause;
+
     void Awake()
     {
         timeBar = GameObject.Find("TimerBar").GetComponent<Image>();
@@ -33,6 +35,7 @@ public class Timer : MonoBehaviour
         timerAnim = GameObject.Find("TimerBar/Timer").GetComponent<Animator>();
         timePassed = Time.deltaTime;
         MaxTime = startTime;
+        isPause = false;
     }
 
     
@@ -43,7 +46,14 @@ public class Timer : MonoBehaviour
 
     public void SetTimeDifficulty(int score)
     {
-        MaxTime = startTime - (float)score / 3000;
+        if(score < 65000)
+        {
+            MaxTime = startTime - (float)score / 5300;
+        }
+        else
+        {
+            MaxTime = startTime - (float)score / 100000;
+        }
     }
 
     public void ModifyTime(int time)
@@ -70,14 +80,22 @@ public class Timer : MonoBehaviour
         StartCoroutine(TimeCoroutine());
     }
 
+    public void PauseTimer(bool flag)
+    {
+        isPause = flag;
+    }
+
     public IEnumerator TimeCoroutine()
     {
         while(progress >= 0)
         {
-            timeBar.fillAmount = Mathf.Lerp(0, 1, progress);
 
-            progress -= timeSpeed * Time.deltaTime;
-            timePassed += Time.deltaTime;
+            if(!isPause)
+            {
+                timeBar.fillAmount = Mathf.Lerp(0, 1, progress);
+                progress -= timeSpeed * Time.deltaTime;
+                timePassed += Time.deltaTime;
+            }
 
             if(timePassed/MaxTime >= 0.66)
             {
@@ -93,11 +111,6 @@ public class Timer : MonoBehaviour
             if(timePassed > maxTime)
             {
                 Debug.Log("Time's up : " + timePassed);
-                
-                Constants.blockPhase = 1;
-                Constants.targetPool = 3;
-                Constants.obsRange = 0;
-                Constants.range = 4;
                 End = true;
 
                 yield break;

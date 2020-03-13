@@ -13,15 +13,16 @@ public class BlockTarget : MonoBehaviour
     [SerializeField] Sprite[] phaseTextImage;
 
     public int targetform;
-
-    public GameObject objTargetColor, objTargetForm, ObjectTargetPhaseImage;
+    
     private Image targetColor, targetForm, targetPhaseImage;
-    private Animator targetColorAnim, targetFormAnim, targetPhaseAnim, scoreTextAnim;
+    public Animator targetColorAnim, targetFormAnim, targetPhaseAnim, scoreTextAnim;
     public int Score {get; set;}
-    private Text scoreText, comboText;
+    public Text scoreText, comboText;
     private int combo = 0;
     private GameObject comboImage;
     private Animator comboAnim;
+
+    public int hitCount, exceedCount, missCount;
 
     /// <summary>
     /// Constructor
@@ -90,7 +91,9 @@ public class BlockTarget : MonoBehaviour
     public int CalculateTargets(GameObject selectedBlock, Vector2 touchWorldPos)
     {
         List<Coordinate> targetCoords = new List<Coordinate>();
-        int hitCount = 0, exceedCount = 0, missCount = 0;
+        hitCount = 0;
+        exceedCount = 0;
+        missCount = 0;
 
         blockTargetFormer.Pivot = selectedBlock.GetComponent<Block>().Coord;
         this.SendMessage("Phase"+Constants.blockPhase+"Form" + blockTargetFormer.targetFormNumber, targetCoords);
@@ -126,7 +129,7 @@ public class BlockTarget : MonoBehaviour
                     {
                         //Tile has no color match
                         missCount++;
-                        tempClass.Destroy("Destroy",0.5f);
+                        tempClass.Destroy("Disable",0.5f);
                     }
 
                     break;
@@ -137,8 +140,10 @@ public class BlockTarget : MonoBehaviour
 
         SetScore(hitCount, missCount);
         SetCombo(hitCount, missCount, touchWorldPos);
-        Main.totalHit += hitCount;
-        Main.totalMiss += missCount;
+        Main.totalHit = Main.totalHit + hitCount;
+        Main.totalMiss = Main.totalMiss + missCount;
+        
+        //Debug.Log("THIT: " + Main.totalHit +"   TMISS: " + Main.totalMiss);
         //SoundManager.Instance.Click();
 
         return hitCount - missCount;
@@ -178,16 +183,20 @@ public class BlockTarget : MonoBehaviour
     {
         if(hit > miss)
         {
-            Score += (int)(Mathf.Pow(hit, 2) * 50);
+            Score += (int)(Mathf.Pow(hit, 2) * 60);
             scoreTextAnim.SetTrigger("ScorePlus");
             Main.timer.timeBarAnim.SetTrigger("TimePlus");
+            if(miss == 0)
+            {
+                Score += hit * 150;
+            }
         }
         else
         {
             Main.timer.timeBarAnim.SetTrigger("TimeMinus");
         }
 
-        SetDifficulty();
+        //SetDifficulty();
         scoreText.text = string.Format("{0:#,###0}", Score);
         Main.timer.SetTimeDifficulty(Score);
 
@@ -229,72 +238,146 @@ public class BlockTarget : MonoBehaviour
         comboText.text = combo + "";
     }
     
-    private void SetDifficulty()
+    public void SetDifficulty()
     {
-        if(Score >= 60000)
+        int firstTrans = 2500;
+        if(Score >= 150000)
         {
+            Constants.blockPhase = Random.Range(8,13);
             Constants.obsRange = 2;
-            Constants.blockPhase  = Random.Range(5,8);
+            //ChangePhaseImage();
         }
-        else if(Score >= 50000)
+        else if(Score >= 130000)
         {
-            Constants.range = 5;
-            Constants.blockPhase  = Random.Range(5,8);
+            Constants.blockPhase = Random.Range(8,13);
+            //ChangePhaseImage();
         }
-        else if(Score >= 40000)
+        else if(Score >= 120000)
         {
-            Constants.range = 4;
-            Constants.blockPhase  = Random.Range(5,8);
+            Constants.blockPhase = Random.Range(8,12);
+            //ChangePhaseImage();
         }
-        else if(Score >= 35000)
+        else if(Score >= 110000)
         {
+            Constants.blockPhase = Random.Range(7,11);
+            Constants.targetPool = 1;
             Constants.obsRange = 1;
+            //ChangePhaseImage();
+        }
+        else if(Score >= 95000)
+        {
+            Constants.range = 7;
+            Constants.blockPhase = Random.Range(6,11);
+            //ChangePhaseImage();
+        }
+        if(Score >= 85000)
+        {
+            Constants.blockPhase = 9;
+        }
+        else if(Score >= 75000)
+        {
+            Constants.blockPhase = 8;
+            //ChangePhaseImage();
+        }
+        else if(Score >= 65000)
+        {
+            if(Constants.size == 5)
+            {
+                Main.resetCheck = false;
+                targetForm.sprite = null;
+                targetColor.sprite = null;
+                Constants.size = 7;
+                Constants.obsRange = 0;
+                Constants.range = 5;
+                Main.blockGenerator.DestroyBlockSet();
+
+                //Main.timer.isPause = true;
+                //Main.blockGenerator.DelayGenerate(1.0f,false,false);
+            }
+            //Constants.blockPhase  = Random.Range(5,8);
+            Constants.range = 6;
+            Constants.obsRange = 0;
+        }
+        else if(Score >= 55000)
+        {
+            Constants.blockPhase  = Random.Range(5,8);
+        }
+        else if(Score >= 38000)
+        {
             Constants.blockPhase = 7;
         }
         else if(Score >= 30000)
         {
             Constants.range = 5;
+            Constants.targetPool = 2;
             Constants.blockPhase = 6;
         }
         else if(Score >= 25000)
         {   
-            if(Constants.blockPhase == 4){
-                targetPhaseImage.sprite = phaseTextImage[2];
-                targetPhaseAnim.SetTrigger("PhaseChange");
-            } 
             Constants.range = 4;
+            Constants.targetPool = 1;
             Constants.blockPhase = 5;
+            Constants.obsRange = 1;
+            //ChangePhaseImage();
         }
-        else if(Score >= 20000)
+        else if(Score >= 18000)
         {
             Constants.range = 5;
+            Constants.blockPhase = Random.Range(2,5);
+        }
+        else if(Score >= firstTrans + 9000)
+        {
             Constants.blockPhase = 4;
         }
-        else if(Score >= 15000)
+        else if(Score >= firstTrans + 4000)
         {
-            Constants.range = 4;
-            Constants.obsRange = 1;
             Constants.blockPhase = 3;
         }
-        else if(Score >= 10000)
+        else if(Score >= firstTrans)
         {
-            Constants.range = 5;
-        }
-        else if(Score >= 4500)
-        {
-            if(Constants.blockPhase == 1)
-            {
-                targetPhaseImage.sprite = phaseTextImage[1];
-                targetPhaseAnim.SetTrigger("PhaseChange");
-            }
             Constants.blockPhase = 2;
             Constants.targetPool = 2;
+            //ChangePhaseImage();
         }
         else if(Score >= 0)
         {
             Constants.blockPhase = 1;
             Constants.targetPool = 3;
         }
-        
+
+        ChangePhaseImage();
+    }
+
+    private void ChangePhaseImage()
+    {
+        Sprite newPhaseImage = null;
+
+        if(Constants.blockPhase == 1)
+        {
+            newPhaseImage = phaseTextImage[0];
+        }
+        else if(Constants.blockPhase >= 2 && Constants.blockPhase <=4)
+        {
+            newPhaseImage = phaseTextImage[1];
+        }
+        else if(Constants.blockPhase >=5 && Constants.blockPhase <=7)
+        {
+            newPhaseImage = phaseTextImage[2];
+        }
+        else if(Constants.blockPhase >=8 && Constants.blockPhase <= 10)
+        {
+            newPhaseImage = phaseTextImage[3];
+        }
+        else
+        {
+            newPhaseImage = phaseTextImage[4];
+        }
+
+        //x N 이미지 적용
+        if(!targetPhaseImage.sprite.Equals(newPhaseImage))
+        {
+            targetPhaseImage.sprite = newPhaseImage;
+            targetPhaseAnim.SetTrigger("PhaseChange");
+        }  
     }
 }
