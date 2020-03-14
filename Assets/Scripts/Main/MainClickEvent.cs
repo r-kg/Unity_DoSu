@@ -69,6 +69,7 @@ public class MainClickEvent : MonoBehaviour
     public void ChangeEffectVolume()
     {
         SoundManager.Instance.effectPlayer.volume = effectSlider.value / 10;
+        SoundManager.Instance.effectSubPlayer.volume = effectSlider.value / 25;
         SoundManager.Instance.Click();
     }
 

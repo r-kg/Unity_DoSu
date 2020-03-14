@@ -183,12 +183,12 @@ public class BlockTarget : MonoBehaviour
     {
         if(hit > miss)
         {
-            Score += (int)(Mathf.Pow(hit, 2) * 60);
+            Score += (int)(Mathf.Pow(hit, 2) * 50);
             scoreTextAnim.SetTrigger("ScorePlus");
             Main.timer.timeBarAnim.SetTrigger("TimePlus");
             if(miss == 0)
             {
-                Score += hit * 150;
+                Score += hit * 100;
             }
         }
         else
@@ -225,6 +225,7 @@ public class BlockTarget : MonoBehaviour
             if (combo >= 2)
             {
                 comboAnim.SetTrigger("ShowCombo");
+                Score += (combo/5) * 50; 
             }
         }
         else
@@ -240,46 +241,51 @@ public class BlockTarget : MonoBehaviour
     
     public void SetDifficulty()
     {
-        int firstTrans = 2500;
-        if(Score >= 150000)
+        int firstTrans = 4000;
+
+        if(Score >= 180000)
         {
-            Constants.blockPhase = Random.Range(8,13);
+            Constants.blockPhase = Random.Range(10,13);
             Constants.obsRange = 2;
+        }
+        else if(Score >= 150000)
+        {
+            Constants.blockPhase = Random.Range(9,13);
+            Constants.targetPool = 1;
             //ChangePhaseImage();
         }
-        else if(Score >= 130000)
+        else if(Score >= 125000)
         {
             Constants.blockPhase = Random.Range(8,13);
             //ChangePhaseImage();
         }
-        else if(Score >= 120000)
+        else if(Score >= 115000)
         {
             Constants.blockPhase = Random.Range(8,12);
-            //ChangePhaseImage();
-        }
-        else if(Score >= 110000)
-        {
-            Constants.blockPhase = Random.Range(7,11);
-            Constants.targetPool = 1;
             Constants.obsRange = 1;
             //ChangePhaseImage();
         }
         else if(Score >= 95000)
         {
-            Constants.range = 7;
+            Constants.blockPhase = Random.Range(7,11);
+            //ChangePhaseImage();
+        }
+        else if(Score >= 82000)
+        {
             Constants.blockPhase = Random.Range(6,11);
             //ChangePhaseImage();
         }
-        if(Score >= 85000)
+        else if(Score >= 72000)
         {
+            Constants.range = 7;
             Constants.blockPhase = 9;
         }
-        else if(Score >= 75000)
+        else if(Score >= 62000)
         {
             Constants.blockPhase = 8;
             //ChangePhaseImage();
         }
-        else if(Score >= 65000)
+        else if(Score >= 55000)
         {
             if(Constants.size == 5)
             {
@@ -289,7 +295,8 @@ public class BlockTarget : MonoBehaviour
                 Constants.size = 7;
                 Constants.obsRange = 0;
                 Constants.range = 5;
-                Main.blockGenerator.DestroyBlockSet();
+                //Main.blockGenerator.DestroyBlockSet();
+                Invoke("DelayCall",0.222f);
 
                 //Main.timer.isPause = true;
                 //Main.blockGenerator.DelayGenerate(1.0f,false,false);
@@ -297,14 +304,16 @@ public class BlockTarget : MonoBehaviour
             //Constants.blockPhase  = Random.Range(5,8);
             Constants.range = 6;
             Constants.obsRange = 0;
+            Constants.blockPhase  = Random.Range(5,8);
         }
-        else if(Score >= 55000)
+        else if(Score >= 44000)
         {
             Constants.blockPhase  = Random.Range(5,8);
         }
         else if(Score >= 38000)
         {
             Constants.blockPhase = 7;
+            Constants.obsRange = 1;
         }
         else if(Score >= 30000)
         {
@@ -317,7 +326,6 @@ public class BlockTarget : MonoBehaviour
             Constants.range = 4;
             Constants.targetPool = 1;
             Constants.blockPhase = 5;
-            Constants.obsRange = 1;
             //ChangePhaseImage();
         }
         else if(Score >= 18000)
@@ -346,6 +354,11 @@ public class BlockTarget : MonoBehaviour
         }
 
         ChangePhaseImage();
+    }
+
+    private void DelayCall()
+    {
+        Main.blockGenerator.DestroyBlockSet();
     }
 
     private void ChangePhaseImage()

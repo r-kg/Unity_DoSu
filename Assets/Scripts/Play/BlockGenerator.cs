@@ -74,6 +74,8 @@ public class BlockGenerator : MonoBehaviour
                 Main.resetCheck = true;
                 yield break;
             }
+            SoundManager.Instance.GenClick();
+
             GameObject blockObject = Instantiate(block, new Vector3(0, 0, 0), Quaternion.identity);
             Block blockScript = blockObject.GetComponent<Block>();
             blockScript.Coord.X = blockCount % Constants.size;

@@ -757,6 +757,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 67c11d2cda13d7e40937c63709bde9b9, type: 3}
   - {fileID: 8300000, guid: 31277111f7f031746a3448b82f7af018, type: 3}
   - {fileID: 8300000, guid: 8e2709949fd9a4146a1cc17148fd0db0, type: 3}
+  soundSub:
+  - {fileID: 8300000, guid: bbf49eee3b440304ead61c5d858df32f, type: 3}
   mainCamera: {fileID: 2086044638}
 --- !u!4 &351688638
 Transform:

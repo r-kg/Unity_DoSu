@@ -82,11 +82,11 @@ public class AchievementTracker : MonoBehaviour
 
 
         //아이템 사용 x 업적
-        if(itemDoCount + itemSuCount == 0 && finalScore >= 50000)
+        if(itemDoCount + itemSuCount == 0 && finalScore >= 65000)
         {
             GoogleManager.Instance.ReportAchievements(GPGSIds.achievement_are_they_sleeping);
         }
-        if(itemDoCount + itemSuCount == 0 && finalScore >= 30000)
+        if(itemDoCount + itemSuCount == 0 && finalScore >= 40000)
         {
             GoogleManager.Instance.ReportAchievements(GPGSIds.achievement_the_silence_of_the_cats);
         }

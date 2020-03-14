@@ -8,6 +8,10 @@ public class AdManager : MonoSingleton<AdManager>
 {
     private string APP_ID = "ca-app-pub-2751306043506296~4464715852";
 
+    private string BANNER_ID = "ca-app-pub-2751306043506296/4178271510";
+    private string INTERSTITAIL_ID = "ca-app-pub-2751306043506296/8068882231";
+    private string REWARD_ID = "ca-app-pub-2751306043506296/2385789647";
+
     public bool acitve;
     private BannerView bannerAd;
     private InterstitialAd interstitialAd;
@@ -33,15 +37,17 @@ public class AdManager : MonoSingleton<AdManager>
 
     void RequestBanner()
     {
-        string bannerId = "ca-app-pub-3940256099942544/6300978111";
-        //bannerAd = new BannerView(bannerId, AdSize.SmartBanner, AdPosition.Bottom);
-        bannerAd = new BannerView(bannerId, AdSize.Banner,AdPosition.Bottom);
+        //string bannerId = "ca-app-pub-3940256099942544/6300978111";
+        string bannerId = BANNER_ID;
+        
+        //bannerAd = new BannerView(bannerId, AdSize.Banner,AdPosition.Bottom);
+        bannerAd = new BannerView(bannerId, AdSize.Banner, AdPosition.Bottom);
 
         //for publish
-        //AdRequest adRequest = new AdRequest.Builder().Build();
+        AdRequest adRequest = new AdRequest.Builder().Build();
         
         //for testing
-        AdRequest adRequest = new AdRequest.Builder().AddTestDevice("2077ef9a63d2b398840261c8221a0c9b").Build();
+        //AdRequest adRequest = new AdRequest.Builder().AddTestDevice("2077ef9a63d2b398840261c8221a0c9b").Build();
 
         bannerAd.LoadAd(adRequest);
         bannerAd.Hide();
@@ -49,14 +55,16 @@ public class AdManager : MonoSingleton<AdManager>
 
     void RequestInterstitial()
     {
-        string interstitialId = "ca-app-pub-3940256099942544/1033173712";
+        //string interstitialId = "ca-app-pub-3940256099942544/1033173712";
+        string interstitialId = INTERSTITAIL_ID;
+        
         interstitialAd = new InterstitialAd(interstitialId);
 
         //for publish
-        //AdRequest adRequest = new AdRequest.Builder().Build();
+        AdRequest adRequest = new AdRequest.Builder().Build();
         
         //for testing
-        AdRequest adRequest = new AdRequest.Builder().AddTestDevice("2077ef9a63d2b398840261c8221a0c9b").Build();
+        //AdRequest adRequest = new AdRequest.Builder().AddTestDevice("2077ef9a63d2b398840261c8221a0c9b").Build();
 
         interstitialAd.LoadAd(adRequest);
         
@@ -64,9 +72,12 @@ public class AdManager : MonoSingleton<AdManager>
 
     void RequestRewardBasedVideoAd()
     {
-        string adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        //string adUnitId = "ca-app-pub-3940256099942544/5224354917";
+        string adUnitId = REWARD_ID;
 
-        AdRequest adRequest = new AdRequest.Builder().AddTestDevice("2077ef9a63d2b398840261c8221a0c9b").Build();
+        //
+        AdRequest adRequest = new AdRequest.Builder().Build();
+        //AdRequest adRequest = new AdRequest.Builder().AddTestDevice("2077ef9a63d2b398840261c8221a0c9b").Build();
 
         this.rewardBasedVideoAd.LoadAd(adRequest, adUnitId);
     }

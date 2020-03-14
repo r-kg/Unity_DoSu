@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoSingleton<SoundManager>
 {
-    public AudioSource effectPlayer;
+    public AudioSource effectPlayer, effectSubPlayer;
     public AudioSource bgmPlayer;
 
     public AudioClip click, slide, scratch;
@@ -14,13 +14,18 @@ public class SoundManager : MonoSingleton<SoundManager>
     public AudioClip bgmMain, bgmPlay;
 
 
+    public AudioClip genSound, tikSound;
+
+
     void Awake()
     {
+        this.gameObject.AddComponent<AudioSource>();
         this.gameObject.AddComponent<AudioSource>();
         this.gameObject.AddComponent<AudioSource>();
         Component[] players = this.GetComponents(typeof(AudioSource));
         effectPlayer = (AudioSource)players[0];
         bgmPlayer = (AudioSource)players[1];
+        effectSubPlayer = (AudioSource)players[2];
         DontDestroyOnLoad(this);
     }
 
@@ -54,6 +59,16 @@ public class SoundManager : MonoSingleton<SoundManager>
         effectPlayer.time = 2;
         playSound();
     }
+
+    public void GenClick()
+    {
+        
+        effectSubPlayer.Stop();
+        effectSubPlayer.time = 0;
+        effectSubPlayer.clip = genSound;
+        effectSubPlayer.Play();
+    }
+
 
     public void DoMeow()
     {

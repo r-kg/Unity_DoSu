@@ -8,6 +8,8 @@ public class StartMain : MonoBehaviour
     [SerializeField] AudioClip[] bgm;
     [SerializeField] AudioClip[] catAudio;
     [SerializeField] AudioClip[] soundEffects;
+
+    [SerializeField] AudioClip[] soundSub;
     [SerializeField] Camera mainCamera;
 
     private int count;
@@ -47,6 +49,9 @@ public class StartMain : MonoBehaviour
         LoadAudioClips();
         SoundManager.Instance.playBGM(SoundManager.Instance.bgmMain);
         SoundManager.Instance.bgmPlayer.volume = 0.4f;
+        SoundManager.Instance.effectPlayer.volume = 0.5f;
+        
+        SoundManager.Instance.effectSubPlayer.volume = 0.3f;
 
         //Score\
         if(PlayerPrefs.HasKey("Score") == false)
@@ -72,6 +77,8 @@ public class StartMain : MonoBehaviour
         SoundManager.Instance.ding = soundEffects[4];
         SoundManager.Instance.ui = soundEffects[5];
         SoundManager.Instance.swipe = soundEffects[6];
+
+        SoundManager.Instance.genSound = soundSub[0];
     }
     void DoubleClick()
     {

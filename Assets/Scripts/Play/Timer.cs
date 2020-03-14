@@ -46,7 +46,7 @@ public class Timer : MonoBehaviour
 
     public void SetTimeDifficulty(int score)
     {
-        if(score < 65000)
+        if(score < 62000)
         {
             MaxTime = startTime - (float)score / 5300;
         }
