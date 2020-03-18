@@ -215,7 +215,8 @@ public class BlockTarget : MonoBehaviour
 
         if(hit / (float)(hit + miss) >= 0.6f)
         {
-            SoundManager.Instance.Click();
+            //SoundManager.Instance.Click();
+            SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_click);
             combo++;
             Main.blockItem.itemDo.Animator.SetTrigger("DoSmile");
             Main.blockItem.itemSoo.Animator.SetTrigger("SooSmile");
@@ -234,7 +235,7 @@ public class BlockTarget : MonoBehaviour
             Main.blockItem.itemDo.Animator.SetTrigger("DoSad");
             Main.blockItem.itemSoo.Animator.SetTrigger("SooSad");
             comboAnim.SetTrigger("ShowComboFailed");
-            SoundManager.Instance.Scratch();
+            SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_scratch);
         }
         comboText.text = combo + "";
     }

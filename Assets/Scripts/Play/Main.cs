@@ -111,13 +111,13 @@ public class Main : MonoBehaviour
     {
         while (true)
         {
-            SoundManager.Instance.Count();
+            SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_count);
             yield return new WaitForSeconds(1.0f);
 
             timeLeft--;
             if (timeLeft == 0)
             {
-                SoundManager.Instance.Ding();
+                SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_ding);
                 yield return new WaitForSeconds(1.0f);
                 CountdownImage.SetActive(false);
                 isPause = false;

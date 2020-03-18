@@ -24,7 +24,6 @@
 
 public static class GPGSIds
 {
-        public const string leaderboard_dosu_ranking = "CgkI2ZPGvagXEAIQAQ"; // <GPGSID>
         public const string achievement_the_silence_of_the_cats = "CgkI2ZPGvagXEAIQDQ"; // <GPGSID>
         public const string achievement_perfect_game_ii = "CgkI2ZPGvagXEAIQEg"; // <GPGSID>
         public const string achievement_score_100000 = "CgkI2ZPGvagXEAIQBg"; // <GPGSID>
@@ -34,6 +33,7 @@ public static class GPGSIds
         public const string achievement_score_50000 = "CgkI2ZPGvagXEAIQBQ"; // <GPGSID>
         public const string achievement_perfect__game_i = "CgkI2ZPGvagXEAIQEQ"; // <GPGSID>
         public const string achievement_perfect_game_iii = "CgkI2ZPGvagXEAIQEw"; // <GPGSID>
+        public const string leaderboard_ranking = "CgkI2ZPGvagXEAIQFg"; // <GPGSID>
         public const string achievement_meowmeowmeowmeow = "CgkI2ZPGvagXEAIQCw"; // <GPGSID>
         public const string achievement_thanks_for_playing = "CgkI2ZPGvagXEAIQFQ"; // <GPGSID>
         public const string achievement_lets_go_su = "CgkI2ZPGvagXEAIQDw"; // <GPGSID>

@@ -96,7 +96,7 @@ public class BlockSlider : MonoBehaviour
         }
         
         UpdateSliderTiles(rX, rY);
-        SoundManager.Instance.Slide();
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_slide);
 
         return true;
     }

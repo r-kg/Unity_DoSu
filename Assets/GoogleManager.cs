@@ -8,24 +8,24 @@ using GooglePlayGames;
 public class GoogleManager : MonoSingleton<GoogleManager>
 {
 
-    public bool active;
-
-
     // Start is called before the first frame update
     void Awake()
     {   
         PlayGamesPlatform.InitializeInstance(new GooglePlayGames.BasicApi.PlayGamesClientConfiguration.Builder().Build());
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
-        LogIn();
+        DontDestroyOnLoad(this);
         
+    }
+    void Start()
+    {
+        LogIn();
     }
     
     public void LogIn()
     {
         if(!Social.localUser.authenticated)
         {
-            ToastMessage.Instance.showAndroidToast("Play 게임 서비스에 로그인 합니다.");
             Social.localUser.Authenticate((bool success) =>
             {
                 if(success)
@@ -39,6 +39,8 @@ public class GoogleManager : MonoSingleton<GoogleManager>
                 }
             });
         }
+
+        ToastMessage.Instance.showAndroidToast("Play 게임 서비스에 로그인 합니다.");
     }
 
     public void LogOut()
@@ -50,7 +52,7 @@ public class GoogleManager : MonoSingleton<GoogleManager>
     {
         if(Social.localUser.authenticated)
         {
-            Social.ReportScore(score, GPGSIds.leaderboard_dosu_ranking,(bool success) =>
+            Social.ReportScore(score, GPGSIds.leaderboard_ranking,(bool success) =>
             {
                 if(success)
                 {
@@ -83,7 +85,7 @@ public class GoogleManager : MonoSingleton<GoogleManager>
     {
         if(Social.localUser.authenticated)
         {
-            Social.LoadScores(GPGSIds.leaderboard_dosu_ranking, (scores) =>{});
+            Social.LoadScores(GPGSIds.leaderboard_ranking, (scores) =>{});
             Social.ShowLeaderboardUI();
         }
     }

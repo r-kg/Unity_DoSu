@@ -7,9 +7,6 @@ public class BlockItem : MonoBehaviour
     public ItemDo itemDo;
     public ItemSoo itemSoo;
 
-    private readonly float itemProb = 5f;
-    protected readonly float probIncrease = 1f;
-
     private void Awake()
     {
         itemDo = new ItemDo();
@@ -61,7 +58,7 @@ public class BlockItem : MonoBehaviour
                     blockScript.Destroy("Disable",0.5f);
                 }
             }
-            SoundManager.Instance.DoMeow();
+            SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_doMeow0);
             Animator.SetTrigger("DoSmile");
             ItemAnim.SetBool("ItemActive",false);
             Main.resetCheck = false;
@@ -88,7 +85,7 @@ public class BlockItem : MonoBehaviour
                 }
             }
 
-            SoundManager.Instance.DoMeow();
+            SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_doMeow0);
             Animator.SetTrigger("SooSmile");
             ItemAnim.SetBool("ItemActive",false);
             Main.resetCheck = false;

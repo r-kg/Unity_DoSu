@@ -7,15 +7,12 @@ using GoogleMobileAds.Api;
 public class AdManager : MonoSingleton<AdManager>
 {
     private string APP_ID = "ca-app-pub-2751306043506296~4464715852";
-
     private string BANNER_ID = "ca-app-pub-2751306043506296/4178271510";
     private string INTERSTITAIL_ID = "ca-app-pub-2751306043506296/8068882231";
     private string REWARD_ID = "ca-app-pub-2751306043506296/2385789647";
 
-    public bool acitve;
     private BannerView bannerAd;
     private InterstitialAd interstitialAd;
-
     private RewardBasedVideoAd rewardBasedVideoAd;
 
 
@@ -28,10 +25,10 @@ public class AdManager : MonoSingleton<AdManager>
         this.rewardBasedVideoAd = RewardBasedVideoAd.Instance;
         rewardBasedVideoAd.OnAdClosed += HandleRewardBasedVideoClosed;
 
-
         RequestBanner();
         RequestInterstitial();
         RequestRewardBasedVideoAd();
+        DontDestroyOnLoad(this);
     }
 
 

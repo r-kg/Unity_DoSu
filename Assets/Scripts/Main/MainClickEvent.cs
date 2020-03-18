@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class MainClickEvent : MonoBehaviour
 {
     private bool gameReady = true;
-    public Animator settingAnim, CreditAnim;
+    
+    public GameObject settingPopup, creditPopup;
     public GameObject UIHider;
     public Slider bgmSlider, effectSlider;
     [SerializeField] GameObject tutorial;
@@ -26,15 +27,15 @@ public class MainClickEvent : MonoBehaviour
     {
         AdManager.Instance.DisplayBanner();
         gameReady = false;
-        settingAnim.SetTrigger("OpenSetting");
+        settingPopup.SetActive(true);
         UIHider.SetActive(false);
         effectSlider.value = SoundManager.Instance.effectPlayer.volume * 10;
         bgmSlider.value = SoundManager.Instance.bgmPlayer.volume * 10;
-        SoundManager.Instance.UI();
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_ui);
         if(GoogleManager.Instance.isLogged())
         {
             gpButton.GetComponent<Image>().sprite  = logged;
-            loggedUserName.text = "ID : " + GoogleManager.Instance.GetUserName();
+            loggedUserName.text = GoogleManager.Instance.GetUserName();
         }
     }
 
@@ -42,22 +43,22 @@ public class MainClickEvent : MonoBehaviour
     public void CloseSetting()
     {
         gameReady = true;
-        settingAnim.SetTrigger("CloseSetting");
+        settingPopup.SetActive(false);
         UIHider.SetActive(true);
         AdManager.Instance.HideBanner();
-        SoundManager.Instance.UI();
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_ui);
     }
     public void PopupCredit()
     {
-        CreditAnim.SetTrigger("OpenSetting");
-        SoundManager.Instance.UI();
+        creditPopup.SetActive(true);
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_ui);
         GoogleManager.Instance.ReportAchievements(GPGSIds.achievement_thanks_for_playing);
     }
     
     public void CloseCredit()
     {
-        CreditAnim.SetTrigger("CloseSetting");
-        SoundManager.Instance.UI();
+        creditPopup.SetActive(false);
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_ui);
     }
 
 
@@ -70,7 +71,7 @@ public class MainClickEvent : MonoBehaviour
     {
         SoundManager.Instance.effectPlayer.volume = effectSlider.value / 10;
         SoundManager.Instance.effectSubPlayer.volume = effectSlider.value / 25;
-        SoundManager.Instance.Click();
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_click);
     }
 
     public void PopupTutorial()
@@ -79,7 +80,7 @@ public class MainClickEvent : MonoBehaviour
         tutorialReview = true;
         tutorialPageNum = 0;
         tutorial.GetComponent<Image>().sprite = tutorialPages[tutorialPageNum];
-        SoundManager.Instance.UI();
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_ui);
         AdManager.Instance.DisplayBanner();
     }
 
@@ -98,7 +99,7 @@ public class MainClickEvent : MonoBehaviour
                 if(success)
                 {   
                     gpButton.GetComponent<Image>().sprite = logged;
-                    loggedUserName.text = "ID : " + GoogleManager.Instance.GetUserName();
+                    loggedUserName.text = GoogleManager.Instance.GetUserName();
                 
                 }
                 else
@@ -142,7 +143,7 @@ public class MainClickEvent : MonoBehaviour
             {
                 AdManager.Instance.HideBanner();
                 Initiate.Fade("Play",Color.white,1.0f);
-                SoundManager.Instance.playBGM(SoundManager.Instance.bgmPlay);
+                SoundManager.Instance.PlayBGM(SoundManager.Instance.bgm_Play);
                 //SoundManager.Instance.DoMeow();
             }
         }
@@ -172,7 +173,7 @@ public class MainClickEvent : MonoBehaviour
             }
         }
 
-        SoundManager.Instance.Swipe();
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_swipe);
         tutorial.GetComponent<Image>().sprite = tutorialPages[tutorialPageNum];
     }
 
@@ -184,7 +185,7 @@ public class MainClickEvent : MonoBehaviour
             tutorialPageNum = 0;
         }
 
-        SoundManager.Instance.Swipe();
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_swipe);
         tutorial.GetComponent<Image>().sprite = tutorialPages[tutorialPageNum];
     }
 
@@ -193,7 +194,7 @@ public class MainClickEvent : MonoBehaviour
         tutorial.SetActive(false);
         PlayerPrefs.SetInt("Tutorial",1);
         PlayerPrefs.Save();
-        SoundManager.Instance.UI();
+        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_ui);
         AdManager.Instance.HideBanner();
         
         if(tutorialReview == false)
