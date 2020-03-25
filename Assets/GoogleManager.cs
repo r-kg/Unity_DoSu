@@ -31,16 +31,16 @@ public class GoogleManager : MonoSingleton<GoogleManager>
                 if(success)
                 {   
                     Debug.Log("LogIn Success");
+                    ToastMessage.Instance.showAndroidToast("Play 게임 서비스에 로그인 합니다.");
                 
                 }
                 else
                 {
                     Debug.Log("LogIn Failed");
+                    ToastMessage.Instance.showAndroidToast("Play 게임 서비스 로그인 실패.");
                 }
             });
         }
-
-        ToastMessage.Instance.showAndroidToast("Play 게임 서비스에 로그인 합니다.");
     }
 
     public void LogOut()

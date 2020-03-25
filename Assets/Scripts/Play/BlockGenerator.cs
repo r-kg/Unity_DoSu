@@ -143,16 +143,6 @@ public class BlockGenerator : MonoBehaviour
 
     public void DestroyBlockSet()
     {
-        /*
-        Main.blockAnimatorList.Clear();
-        foreach(GameObject blockObject in Main.blockList)
-        {
-            Destroy(blockObject);
-        }
-        Main.blockList.Clear();
-        */
-        //Main.blockTarget.SetTargets(Constants.targetPool);
-        
         Main.timer.isPause= true;
         isGenerating = true;
         StartCoroutine(DelayDestroy());
