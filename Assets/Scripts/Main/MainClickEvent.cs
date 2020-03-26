@@ -22,6 +22,29 @@ public class MainClickEvent : MonoBehaviour
     private bool tutorialReview = false;
 
 
+    //Tutorial
+    [SerializeField] GameObject tutorialObject;
+    [SerializeField] Animator tutorialAnimator;
+
+    public void ViewTutorial()
+    {
+        tutorialObject.SetActive(true);
+    }
+
+    public void TutorialNext()
+    {
+        tutorialAnimator.SetTrigger("next");
+        if(tutorialAnimator.GetCurrentAnimatorStateInfo(0).IsName("Tutorial_7"))
+        {
+            tutorialObject.SetActive(false);
+        }
+    }
+    public void TutorialPrev()
+    {
+        tutorialAnimator.SetTrigger("prev");
+    }
+
+
 
     public void PopupSetting()
     {
@@ -152,7 +175,7 @@ public class MainClickEvent : MonoBehaviour
     }
 
 
-    public void TutorialNext()
+    public void TutorialNextTest()
     {
         tutorialPageNum++;
         if(tutorialPageNum >= tutorialPages.Length)
