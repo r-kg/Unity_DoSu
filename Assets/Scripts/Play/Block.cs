@@ -42,7 +42,6 @@ public class Block : MonoBehaviour
     {
         Coord = new Coordinate(0, 0);
         Animator = this.GetComponent<Animator>();
-        //spriteRenderer = this.GetComponent<SpriteRenderer>();
         spriteRenderer = this.transform.GetChild(0).GetComponent<SpriteRenderer>();
     }
 

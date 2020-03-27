@@ -134,16 +134,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -2.15
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.38333333
-        value: -2.15
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -162,16 +153,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -516
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.38333333
-        value: -516
+        value: -604.5
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -784,22 +766,18 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 8167777547f044240a9b338a7a251dfa, type: 3}
-    - time: 0.38333333
-      value: {fileID: 21300000, guid: 8167777547f044240a9b338a7a251dfa, type: 3}
+      value: {fileID: 21300000, guid: 47639d75319e30440ad3e6b907771ba0, type: 3}
     attribute: m_Sprite
     path: GuideImage
     classID: 114
     script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 688c405e911c5f34d9679ac560ee3628, type: 3}
-    - time: 0.38333333
-      value: {fileID: 21300000, guid: 688c405e911c5f34d9679ac560ee3628, type: 3}
+      value: {fileID: 21300000, guid: 83d6509a89cb8a244a1db77a20082071, type: 3}
     - time: 1.1666666
-      value: {fileID: 21300000, guid: 09a238e87bcd462449345b9166ef6fba, type: 3}
+      value: {fileID: 21300000, guid: 3eb589cc374812d4a9dcfaf73dd5c5f8, type: 3}
     - time: 1.4
-      value: {fileID: 21300000, guid: 688c405e911c5f34d9679ac560ee3628, type: 3}
+      value: {fileID: 21300000, guid: 83d6509a89cb8a244a1db77a20082071, type: 3}
     attribute: m_Sprite
     path: GuideCursor
     classID: 114
@@ -1116,12 +1094,10 @@ AnimationClip:
       customType: 28
       isPPtrCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 8167777547f044240a9b338a7a251dfa, type: 3}
-    - {fileID: 21300000, guid: 8167777547f044240a9b338a7a251dfa, type: 3}
-    - {fileID: 21300000, guid: 688c405e911c5f34d9679ac560ee3628, type: 3}
-    - {fileID: 21300000, guid: 688c405e911c5f34d9679ac560ee3628, type: 3}
-    - {fileID: 21300000, guid: 09a238e87bcd462449345b9166ef6fba, type: 3}
-    - {fileID: 21300000, guid: 688c405e911c5f34d9679ac560ee3628, type: 3}
+    - {fileID: 21300000, guid: 47639d75319e30440ad3e6b907771ba0, type: 3}
+    - {fileID: 21300000, guid: 83d6509a89cb8a244a1db77a20082071, type: 3}
+    - {fileID: 21300000, guid: 3eb589cc374812d4a9dcfaf73dd5c5f8, type: 3}
+    - {fileID: 21300000, guid: 83d6509a89cb8a244a1db77a20082071, type: 3}
     - {fileID: 21300000, guid: 4d86dc37a629ee048a8757b808c7803f, type: 3}
     - {fileID: 21300000, guid: 4d86dc37a629ee048a8757b808c7803f, type: 3}
     - {fileID: 21300000, guid: 4d86dc37a629ee048a8757b808c7803f, type: 3}
@@ -1296,16 +1272,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -2.15
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.38333333
-        value: -2.15
+        value: 0
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -1324,16 +1291,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: -516
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.38333333
-        value: -516
+        value: -604.5
         inSlope: 0
         outSlope: 0
         tangentMode: 136

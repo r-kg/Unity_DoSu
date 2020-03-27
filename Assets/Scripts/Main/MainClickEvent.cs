@@ -44,8 +44,6 @@ public class MainClickEvent : MonoBehaviour
         tutorialAnimator.SetTrigger("prev");
     }
 
-
-
     public void PopupSetting()
     {
         AdManager.Instance.DisplayBanner();
@@ -95,16 +93,6 @@ public class MainClickEvent : MonoBehaviour
         SoundManager.Instance.effectPlayer.volume = effectSlider.value / 10;
         SoundManager.Instance.effectSubPlayer.volume = effectSlider.value / 25;
         SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_click);
-    }
-
-    public void PopupTutorial()
-    {
-        tutorial.SetActive(true);
-        tutorialReview = true;
-        tutorialPageNum = 0;
-        tutorial.GetComponent<Image>().sprite = tutorialPages[tutorialPageNum];
-        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_ui);
-        AdManager.Instance.DisplayBanner();
     }
 
     public void InteractGP()
@@ -173,65 +161,4 @@ public class MainClickEvent : MonoBehaviour
             }
         }
     }
-
-
-    public void TutorialNextTest()
-    {
-        tutorialPageNum++;
-        if(tutorialPageNum >= tutorialPages.Length)
-        {
-            tutorial.SetActive(false);
-            AdManager.Instance.HideBanner();
-            PlayerPrefs.SetInt("Tutorial",1);
-            PlayerPrefs.Save();
-
-            if(tutorialReview == false)
-            {
-                gameReady = true;
-                LoadMain();
-                return;
-            }
-            else
-            {
-                tutorialReview = false;
-                return;
-            }
-        }
-
-        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_swipe);
-        tutorial.GetComponent<Image>().sprite = tutorialPages[tutorialPageNum];
-    }
-
-    public void TutorialBack()
-    {
-        tutorialPageNum--;
-        if(tutorialPageNum < 0)
-        {
-            tutorialPageNum = 0;
-        }
-
-        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_swipe);
-        tutorial.GetComponent<Image>().sprite = tutorialPages[tutorialPageNum];
-    }
-
-    public void TutorialSkip()
-    {
-        tutorial.SetActive(false);
-        PlayerPrefs.SetInt("Tutorial",1);
-        PlayerPrefs.Save();
-        SoundManager.Instance.PlayEffect(SoundManager.Instance.effect_ui);
-        AdManager.Instance.HideBanner();
-        
-        if(tutorialReview == false)
-        {
-            LoadMain();
-            return;
-        }
-        else
-        {
-            tutorialReview = false;
-            return;
-        }
-    }
-
 }

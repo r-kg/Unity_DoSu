@@ -2,25 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.U2D;
 
 
 public class BlockTargetFormer : MonoBehaviour
 {
+    [SerializeField] SpriteAtlas atlas;
+
     public int targetFormNumber;
-
-    //public SpriteAtlas saTargetForm;
-
+    
     public Coordinate Pivot { get; set; }
-    // Start is called before the first frame update
     
     public void SetTargetFormNumSprite(Image targetFormSprite)
     {
         targetFormNumber = Random.Range(0,8);
         targetFormSprite.sprite = Resources.Load<Sprite>("TargetForm/Phase"+Constants.blockPhase+"/Form" + targetFormNumber);
-        //targetFormSprite.sprite = saTargetForm.GetSprite("Phase"+Constants.blockPhase+"/Form" + targetFormNumber);
     }
-
-
 
     ///////////
     //Phase 1//

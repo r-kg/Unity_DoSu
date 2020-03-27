@@ -38,24 +38,6 @@ public class BlockGenerator : MonoBehaviour
         Constants.gap = (int)typeof(Constants).GetField("gap" + Constants.size).GetValue(typeof(Constants));
         block.transform.localScale = new Vector3(bSize, bSize, 1);
 
-        /*
-        for (int i = 0; i < Mathf.Pow(Constants.size, 2); i++)
-        {
-            GameObject blockObject = Instantiate(block, new Vector3(0, 0, 0), Quaternion.identity);
-            Block blockScript = blockObject.GetComponent<Block>();
-            blockScript.Coord.X = i % Constants.size;
-            blockScript.Coord.Y = i / Constants.size;
-            blockScript.Color = Constants.BlockType.Random;
-
-            blockObject.name = "Block " + blockScript.Coord.GetIndex();
-            blockObject.transform.parent = blockHandler.transform;
-            blockObject.transform.position = new Vector3(pivotX + (Constants.gap * blockScript.Coord.X), pivotY - (Constants.gap * blockScript.Coord.Y), 0);
-            Main.blockList.Add(blockObject);
-            Main.blockAnimatorList.Add(blockScript.Animator);
-            blockScript.Animator.SetTrigger("BlockIn");
-            
-        }
-        */
 
         if(setTarget) Main.blockTarget.SetTargets(Constants.targetPool);
         StartCoroutine(GenerateBlock());

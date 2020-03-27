@@ -11,11 +11,6 @@ public class AchievementTracker : MonoBehaviour
 
     private int finalScore;
 
-    void Start()
-    {
-        
-    }
-
     public void CheckAchievement()
     {
         if(Social.localUser.authenticated == false) return;
