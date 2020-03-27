@@ -37,6 +37,12 @@ public class MainClickEvent : MonoBehaviour
         if(tutorialAnimator.GetCurrentAnimatorStateInfo(0).IsName("Tutorial_7"))
         {
             tutorialObject.SetActive(false);
+            if(PlayerPrefs.GetInt("fp") == 1)
+            {
+                PlayerPrefs.SetInt("fp",0);
+                PlayerPrefs.Save();
+                LoadMain();
+            }
         }
     }
     public void TutorialPrev()
@@ -144,20 +150,16 @@ public class MainClickEvent : MonoBehaviour
 
     public void LoadMain()
     {
-        if (gameReady && tutorial.activeSelf == false)
+        if (gameReady)
         {
-            if(PlayerPrefs.HasKey("Tutorial") == false)
+            if(PlayerPrefs.GetInt("fp") == 1)
             {
-                tutorial.SetActive(true);
-                tutorialPageNum = 0;
-                tutorial.GetComponent<Image>().sprite = tutorialPages[tutorialPageNum];
+                ViewTutorial();
             }
             else
             {
-                AdManager.Instance.HideBanner();
                 Initiate.Fade("Play",Color.white,1.0f);
                 SoundManager.Instance.PlayBGM(SoundManager.Instance.bgm_Play);
-                //SoundManager.Instance.DoMeow();
             }
         }
     }

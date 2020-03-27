@@ -10,15 +10,7 @@ public class BlockGenerator : MonoBehaviour
     private int pivotX, pivotY, blockCount;
     private readonly float obstacleProb =7.5f;
     private float prob = 10f;
-
-    public int listCount =0;
-
-    public bool isGenerating = true;
-
-    void Awake()
-    {
-        //block.transform.localScale = new Vector3(Constants.blockSize, Constants.blockSize, 1);
-    }
+    public bool isGenerating = true;    
 
     /// <summary>
     /// 게임 시작시 블럭 뿌려주는 함수

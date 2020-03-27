@@ -18,9 +18,9 @@ public class StartMain : MonoBehaviour
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
 
         //Score\
-        if(PlayerPrefs.HasKey("Score") == false)
+        if(PlayerPrefs.HasKey("fp") == false)
         {
-            PlayerPrefs.SetInt("Score",0);
+            PlayerPrefs.SetInt("fp",1);
             PlayerPrefs.Save();
         }
     }

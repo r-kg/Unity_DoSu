@@ -16,7 +16,7 @@ public class BlockTargetFormer : MonoBehaviour
     public void SetTargetFormNumSprite(Image targetFormSprite)
     {
         targetFormNumber = Random.Range(0,8);
-        targetFormSprite.sprite = Resources.Load<Sprite>("TargetForm/Phase"+Constants.blockPhase+"/Form" + targetFormNumber);
+        targetFormSprite.sprite = atlas.GetSprite(Constants.blockPhase+"-"+targetFormNumber);
     }
 
     ///////////

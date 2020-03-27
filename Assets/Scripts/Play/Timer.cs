@@ -14,7 +14,7 @@ public class Timer : MonoBehaviour
         get { return maxTime; }
         set
         {
-            if (value < 11) value = 11;
+            if (value < 10) value = 10;
             maxTime = value;
             timeSpeed = 1.0f / (float)maxTime;
         }
@@ -48,11 +48,11 @@ public class Timer : MonoBehaviour
     {
         if(score < 62000)
         {
-            MaxTime = startTime - (float)score / 4900;
+            MaxTime = startTime - (float)score / 4000;
         }
         else
         {
-            MaxTime = startTime - (float)score / 9500;
+            MaxTime = startTime - (float)score / 7500;
         }
     }
 

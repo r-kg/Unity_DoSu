@@ -88,6 +88,24 @@ public class GoogleManager : MonoSingleton<GoogleManager>
             Social.LoadScores(GPGSIds.leaderboard_ranking, (scores) =>{});
             Social.ShowLeaderboardUI();
         }
+        else
+        {
+            Social.localUser.Authenticate((bool success) =>
+            {
+                if(success)
+                {   
+                    Debug.Log("LogIn Success");
+                    ToastMessage.Instance.showAndroidToast("Play 게임 서비스에 로그인 합니다.");
+                    Social.LoadScores(GPGSIds.leaderboard_ranking, (scores) =>{});
+                    Social.ShowLeaderboardUI();
+                }
+                else
+                {
+                    Debug.Log("LogIn Failed");
+                    ToastMessage.Instance.showAndroidToast("Play 게임 서비스 로그인 실패.");
+                }
+            });
+        }
     }
 
     public void OnShowAchivementUI()
@@ -96,6 +114,22 @@ public class GoogleManager : MonoSingleton<GoogleManager>
         {
             Social.ShowAchievementsUI();
         }
+        else
+        {
+            Social.localUser.Authenticate((bool success) =>
+            {
+                if(success)
+                {   
+                    Debug.Log("LogIn Success");
+                    ToastMessage.Instance.showAndroidToast("Play 게임 서비스에 로그인 합니다.");
+                    Social.ShowAchievementsUI();
+                }
+                else
+                {
+                    Debug.Log("LogIn Failed");
+                    ToastMessage.Instance.showAndroidToast("Play 게임 서비스 로그인 실패.");
+                }
+            });
+        }
     }
-
 }

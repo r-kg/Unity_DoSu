@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.U2D;
 
 public class Main : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class Main : MonoBehaviour
     public static bool resetCheck;
     public static int itemDoCount, itemSuCount, totalHit, totalMiss;
     private bool isPause;
+    private int clickCount;
     [SerializeField] GameObject[] pauseHider;
     [SerializeField] GameObject pausePopup;
 
@@ -25,12 +27,11 @@ public class Main : MonoBehaviour
     public static Timer timer;
     private TouchListener touchListener;
 
-    public float timeLeft = 3.0f;
+    private float timeLeft = 3.0f;
     public GameObject resultDlg;
     public GameObject CountdownImage;
     public Text resultScore;
 
-    private int clickCount;
 
 
 
@@ -43,7 +44,6 @@ public class Main : MonoBehaviour
         blockColors = (Sprite[])serializedBlockColors.Clone();
 
         //**Generate class instances**//
-        //blockSlider = gameObject.AddComponent<BlockSlider>();
         blockItem = gameObject.AddComponent<BlockItem>();
         timer = gameObject.AddComponent<Timer>();
         touchListener = gameObject.AddComponent<TouchListener>();
@@ -58,7 +58,6 @@ public class Main : MonoBehaviour
         blockTarget = this.gameObject.GetComponent<BlockTarget>();
         blockGenerator = this.gameObject.GetComponent<BlockGenerator>();
         blockSlider = this.gameObject.GetComponent<BlockSlider>();
-        achievementTracker = this.gameObject.GetComponent<AchievementTracker>();
         resetCheck = blockGenerator.GenerateBlockSet(true);
         itemDoCount = itemSuCount = totalHit = totalMiss = 0;
     }
@@ -74,10 +73,6 @@ public class Main : MonoBehaviour
             {
                 resetCheck = false;
                 if(resultDlg.activeSelf==false){
-                    achievementTracker.itemDoCount = Main.itemDoCount;
-                    achievementTracker.itemSuCount = Main.itemSuCount;
-                    achievementTracker.totalHit = Main.totalHit;
-                    achievementTracker.totalMiss = Main.totalMiss;
                     resultDlg.SetActive(true);
                     resultScore.text = string.Format("{0:#,###0}", blockTarget.Score);
                     GoogleManager.Instance.LogIn();

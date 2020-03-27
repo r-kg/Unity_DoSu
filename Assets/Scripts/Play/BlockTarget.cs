@@ -7,40 +7,22 @@ using System.Linq;
 
 public class BlockTarget : MonoBehaviour
 {
-    private BlockTargetFormer blockTargetFormer;
+    [SerializeField] BlockTargetFormer blockTargetFormer;
     public Constants.BlockType TargetColor { get; set; }
 
     [SerializeField] Sprite[] phaseTextImage;
 
-    public int targetform;
     
-    private Image targetColor, targetForm, targetPhaseImage;
-    public Animator targetColorAnim, targetFormAnim, targetPhaseAnim, scoreTextAnim;
+    [SerializeField] Image targetColor, targetForm, targetPhaseImage;
+    public Animator targetColorAnim, targetPhaseAnim, scoreTextAnim, comboAnim;
     public int Score {get; set;}
     public Text scoreText, comboText;
     private int combo = 0;
-    private GameObject comboImage;
-    private Animator comboAnim;
+    [SerializeField] GameObject comboImage;
+    private int hitCount, exceedCount, missCount;
 
-    public int hitCount, exceedCount, missCount;
-
-    /// <summary>
-    /// Constructor
-    /// </summary>
     void Awake()
     {
-        //coordinateForm = gameObject.AddComponent<CoordinateForm>();
-        blockTargetFormer = gameObject.AddComponent<BlockTargetFormer>();
-        targetColor = GameObject.Find("Canvas").transform.Find("TargetBalloon").transform.Find("TargetColor").gameObject.GetComponent<Image>();
-        targetColorAnim = GameObject.Find("Canvas").transform.Find("TargetBalloon").transform.Find("TargetColor").gameObject.GetComponent<Animator>();
-        targetForm = GameObject.Find("Canvas").transform.Find("TargetBalloon").transform.Find("TargetForm").gameObject.GetComponent<Image>();
-        targetPhaseImage = GameObject.Find("Canvas").transform.Find("TargetBalloon").transform.Find("TargetPhase").gameObject.GetComponent<Image>();
-        targetPhaseAnim = GameObject.Find("Canvas").transform.Find("TargetBalloon").transform.Find("TargetPhase").gameObject.GetComponent<Animator>();
-        scoreText = GameObject.Find("CanvasUI").transform.Find("ScoreText").gameObject.GetComponent<Text>();
-        scoreTextAnim = scoreText.GetComponent<Animator>();
-        comboImage = GameObject.Find("CanvasUI").transform.Find("ComboImage").gameObject;
-        comboText = comboImage.transform.Find("ComboText").gameObject.GetComponent<Text>();
-        comboAnim = comboImage.GetComponent<Animator>();
         Score = 0;
     }
 
@@ -149,6 +131,7 @@ public class BlockTarget : MonoBehaviour
         return hitCount - missCount;
     }
 
+    /*
     public void HintTarget(GameObject selectedBlock, bool flag)
     {
         if(!selectedBlock) return;
@@ -172,6 +155,7 @@ public class BlockTarget : MonoBehaviour
             }
          }
     }
+    */
    
 
     /// <summary>
@@ -247,7 +231,6 @@ public class BlockTarget : MonoBehaviour
         if(Score >= 180000)
         {
             Constants.blockPhase = Random.Range(10,13);
-            Constants.obsRange = 2;
         }
         else if(Score >= 150000)
         {
@@ -258,12 +241,12 @@ public class BlockTarget : MonoBehaviour
         else if(Score >= 125000)
         {
             Constants.blockPhase = Random.Range(8,13);
+            Constants.obsRange = 2;
             //ChangePhaseImage();
         }
         else if(Score >= 115000)
         {
             Constants.blockPhase = Random.Range(8,12);
-            Constants.obsRange = 1;
             //ChangePhaseImage();
         }
         else if(Score >= 95000)
@@ -274,6 +257,7 @@ public class BlockTarget : MonoBehaviour
         else if(Score >= 82000)
         {
             Constants.blockPhase = Random.Range(6,11);
+            Constants.obsRange = 1;
             //ChangePhaseImage();
         }
         else if(Score >= 72000)
@@ -314,7 +298,6 @@ public class BlockTarget : MonoBehaviour
         else if(Score >= 38000)
         {
             Constants.blockPhase = 7;
-            Constants.obsRange = 1;
         }
         else if(Score >= 30000)
         {
@@ -327,6 +310,7 @@ public class BlockTarget : MonoBehaviour
             Constants.range = 4;
             Constants.targetPool = 1;
             Constants.blockPhase = 5;
+            Constants.obsRange = 1;
             //ChangePhaseImage();
         }
         else if(Score >= 18000)

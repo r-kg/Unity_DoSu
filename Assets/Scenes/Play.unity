@@ -1664,41 +1664,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 764808544}
   m_CullTransparentMesh: 0
---- !u!1 &782002854
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 782002855}
-  m_Layer: 5
-  m_Name: CatObjects
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &782002855
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782002854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2038634466}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -62}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &869611572
 GameObject:
   m_ObjectHideFlags: 0
@@ -2673,6 +2638,7 @@ GameObject:
   - component: {fileID: 1493438356}
   - component: {fileID: 1493438358}
   - component: {fileID: 1493438357}
+  - component: {fileID: 1493438359}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -2705,8 +2671,7 @@ MonoBehaviour:
   - {fileID: 635177367}
   - {fileID: 2027671662}
   pausePopup: {fileID: 1742188837}
-  achievementTracker: {fileID: 0}
-  timeLeft: 3
+  achievementTracker: {fileID: 1493438357}
   resultDlg: {fileID: 244153486}
   CountdownImage: {fileID: 316075206}
   resultScore: {fileID: 1099970574}
@@ -2738,7 +2703,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   block: {fileID: 328147033620019639, guid: 9f1a9d323ad24f945bc756d92a6f93a0, type: 3}
   blockHandler: {fileID: 635177367}
-  listCount: 0
   isGenerating: 0
 --- !u!114 &1493438356
 MonoBehaviour:
@@ -2752,22 +2716,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86c1b56c9e7395545af857477cb91da0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockTargetFormer: {fileID: 1493438359}
   phaseTextImage:
   - {fileID: 21300000, guid: 6f49d6bd47ac1ee4c97a0d0a50b9732d, type: 3}
   - {fileID: 21300000, guid: df57ea944ab463147884a2c4acec6738, type: 3}
   - {fileID: 21300000, guid: 8d23d911b8b5d184c9c4c9100f77e327, type: 3}
   - {fileID: 21300000, guid: 48a7346f04b15514bb373d6146ea6a94, type: 3}
   - {fileID: 21300000, guid: 5c33a4577b5e5c24086bf79e44a374fa, type: 3}
-  targetform: 0
-  targetColorAnim: {fileID: 0}
-  targetFormAnim: {fileID: 0}
-  targetPhaseAnim: {fileID: 0}
-  scoreTextAnim: {fileID: 0}
-  scoreText: {fileID: 0}
-  comboText: {fileID: 0}
-  hitCount: 0
-  exceedCount: 0
-  missCount: 0
+  targetColor: {fileID: 944101979}
+  targetForm: {fileID: 40225810}
+  targetPhaseImage: {fileID: 754600995}
+  targetColorAnim: {fileID: 944101981}
+  targetPhaseAnim: {fileID: 754600997}
+  scoreTextAnim: {fileID: 2133819191}
+  comboAnim: {fileID: 253860692}
+  scoreText: {fileID: 2133819189}
+  comboText: {fileID: 896563416}
+  comboImage: {fileID: 253860688}
 --- !u!114 &1493438357
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2780,10 +2745,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34cda252315485043b6935f271deb0b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemDoCount: 0
-  itemSuCount: 0
-  totalHit: 0
-  totalMiss: 0
 --- !u!114 &1493438358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2798,6 +2759,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   silderList: []
   blockHandler: {fileID: 635177367}
+--- !u!114 &1493438359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493438352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ffa1d83ade5b04e95686bb45d78a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  atlas: {fileID: 4343727234628468602, guid: 311f61fa05f55af46946f2d412d1875c, type: 2}
+  targetFormNumber: 0
 --- !u!1 &1603570747
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,7 +3726,6 @@ RectTransform:
   - {fileID: 1020028107}
   - {fileID: 2027671663}
   - {fileID: 636453071}
-  - {fileID: 782002855}
   m_Father: {fileID: 519420032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
