@@ -159,13 +159,14 @@ public class MainClickEvent : MonoBehaviour
             else
             {
                 Initiate.Fade("Play",Color.white,1.0f);
-                SoundManager.Instance.PlayBGM(SoundManager.Instance.bgm_Play);
             }
         }
     }
 
+    
     void OnEnable()
     {
         UIHider.SetActive(true);
     }
+    
 }

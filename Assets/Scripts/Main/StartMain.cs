@@ -16,6 +16,10 @@ public class StartMain : MonoBehaviour
     void Start()
     {
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        GoogleManager.Instance.Load();
+        AdManager.Instance.Load();
+        SoundManager.Instance.PlayBGM(SoundManager.Instance.bgm_Main);
+        
 
         //Score\
         if(PlayerPrefs.HasKey("fp") == false)

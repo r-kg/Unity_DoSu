@@ -2282,6 +2282,7 @@ GameObject:
   - component: {fileID: 1099970573}
   - component: {fileID: 1099970575}
   - component: {fileID: 1099970574}
+  - component: {fileID: 1099970576}
   m_Layer: 5
   m_Name: TextScore
   m_TagString: Untagged
@@ -2332,7 +2333,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 3cb66cfd56549214eb515380c45ad338, type: 2}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 5
     m_MaxSize: 52
     m_Alignment: 1
@@ -2350,6 +2351,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1099970572}
   m_CullTransparentMesh: 0
+--- !u!95 &1099970576
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099970572}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4e5d076ecbd65b64dbb0af7d20ba954b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1172112524
 GameObject:
   m_ObjectHideFlags: 0

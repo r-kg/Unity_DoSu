@@ -60,6 +60,7 @@ public class Main : MonoBehaviour
         blockSlider = this.gameObject.GetComponent<BlockSlider>();
         resetCheck = blockGenerator.GenerateBlockSet(true);
         itemDoCount = itemSuCount = totalHit = totalMiss = 0;
+        SoundManager.Instance.PlayBGM(SoundManager.Instance.bgm_Play);
     }
 
     void Update()
@@ -75,6 +76,7 @@ public class Main : MonoBehaviour
                 if(resultDlg.activeSelf==false){
                     resultDlg.SetActive(true);
                     resultScore.text = string.Format("{0:#,###0}", blockTarget.Score);
+                    blockTarget.scoreText.text = "";
                     GoogleManager.Instance.LogIn();
                     achievementTracker.CheckAchievement();
                     GoogleManager.Instance.ReportLeaderboardScore(Main.blockTarget.Score);

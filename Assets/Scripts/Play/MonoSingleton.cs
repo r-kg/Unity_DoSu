@@ -5,14 +5,20 @@ using UnityEngine;
 public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     protected static T instance = null;
+
+
+    
     public static T Instance
     {
+        
         get
         {
+            
              if(instance == null)
              {
                  GameObject obj;
                  obj = GameObject.Find(typeof(T).Name);
+                 
 
                  if(obj == null)
                  {
@@ -27,6 +33,24 @@ public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
              }
              
              return instance;
+             
         }
     }
+    
+
+    public void Load()
+    {
+        Debug.Log(gameObject.name + " Loaded");
+    }
+
+
+    void Start()
+    {
+        var obj = GameObject.FindObjectsOfType(typeof(T));
+        if(obj.Length > 1)
+        {
+            DestroyImmediate(gameObject);
+        }
+    }
+
 }
