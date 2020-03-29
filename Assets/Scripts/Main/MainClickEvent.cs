@@ -163,4 +163,9 @@ public class MainClickEvent : MonoBehaviour
             }
         }
     }
+
+    void OnEnable()
+    {
+        UIHider.SetActive(true);
+    }
 }

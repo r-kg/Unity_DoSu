@@ -48,7 +48,7 @@ public class Timer : MonoBehaviour
     {
         if(score < 62000)
         {
-            MaxTime = startTime - (float)score / 4000;
+            MaxTime = startTime - (float)score / 4200;
         }
         else
         {

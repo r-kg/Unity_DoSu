@@ -304,13 +304,13 @@ public class BlockTarget : MonoBehaviour
             Constants.range = 5;
             Constants.targetPool = 2;
             Constants.blockPhase = 6;
+            Constants.obsRange = 1;
         }
         else if(Score >= 25000)
         {   
             Constants.range = 4;
             Constants.targetPool = 1;
             Constants.blockPhase = 5;
-            Constants.obsRange = 1;
             //ChangePhaseImage();
         }
         else if(Score >= 18000)
